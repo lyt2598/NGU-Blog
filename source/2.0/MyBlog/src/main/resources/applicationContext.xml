@@ -44,8 +44,8 @@
 			<mvc:exclude-mapping path="/img/**" />
 			<mvc:exclude-mapping path="/html/**" />
 			<!-- 发表东西时不进行拦截 -->
-			<mvc:exclude-mapping path="/publish/**" />
-			<mvc:exclude-mapping path="/userInfo/**" />
+			<mvc:exclude-mapping path="/ajax/**" />
+			<mvc:exclude-mapping path="/post/**" />
 			<!-- 拦截请求，加载头部菜单 -->
 			<bean
 				class="com.liaoyingtai.blog.controller.interceptor.MyHandlerInterceptor" />
@@ -84,7 +84,7 @@
 			value="org.springframework.web.servlet.view.JstlView" />
 		<property name="contentType" value="text/html" />
 		<property name="suffix" value=".jsp" />
-		<property name="prefix" value="/WEB-INF/page/" />
+		<property name="prefix" value="/WEB-INF/views/" />
 	</bean>
 
 	<!-- 创建数据源 -->

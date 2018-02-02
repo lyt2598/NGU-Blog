@@ -7,8 +7,6 @@
 	<welcome-file-list>
 		<welcome-file>index.jsp</welcome-file>
 	</welcome-file-list>
-
-	<!-- spring字符集过滤器 -->
 	<filter>
 		<filter-name>CharacterEncodingFilter</filter-name>
 		<filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
@@ -25,7 +23,6 @@
 		<filter-name>CharacterEncodingFilter</filter-name>
 		<url-pattern>/</url-pattern>
 	</filter-mapping>
-
 	<servlet>
 		<servlet-name>dispatcher</servlet-name>
 		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
@@ -36,15 +33,17 @@
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>dispatcher</servlet-name>
-		<!-- *.action：拦截action -->
-		<!-- /：拦截所有,RESTful需要使用此种方法 ，但是在spring配置文件中要处理静态资源 -->
 		<url-pattern>/</url-pattern>
 	</servlet-mapping>
 	<error-page>
 		<error-code>404</error-code>
 		<location>/404.jsp</location>
 	</error-page>
-	<!-- <listener> <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class> 
-		</listener> <context-param> <param-name>contextConfigLocation</param-name> 
-		<param-value>classpath*:spring/spring-*.xml</param-value> </context-param> -->
+	<!-- 取出JSP页面空格 -->
+	<jsp-config>
+		<jsp-property-group>
+			<url-pattern>*.jsp</url-pattern>
+			<trim-directive-whitespaces>true</trim-directive-whitespaces>
+		</jsp-property-group>
+	</jsp-config>
 </web-app>

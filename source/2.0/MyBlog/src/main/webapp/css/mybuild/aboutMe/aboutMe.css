@@ -6,7 +6,7 @@
 	text-align: center;
 }
 
-#email a{
+#email a {
 	color: #fff;
 }
 
@@ -60,6 +60,17 @@
 
 .about_me_context .list_right h1 span {
 	margin-left: 20px;
+}
+
+.contact {
+	background-color: #f5f5f5;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	line-height: 1.42857143;
+	margin: 0 0 10px;
+	padding: 9.5px;
+	font-size: 16px;
+	color: #757575;
 }
 
 .about_me_context .list_right .list_right_context {

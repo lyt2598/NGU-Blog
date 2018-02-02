@@ -29,10 +29,7 @@
 			getIndexLN(userId);
 			// 读取用户信息
 			getUserInfo(userId);
-			//读取系统时间
-			getTimeHtml();
-			//读取搜索框
-			getSearchHtml();
+			
 		});
 	</script>
 </body>

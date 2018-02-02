@@ -5,22 +5,33 @@ import java.util.Date;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.liaoyingtai.blog.controller.exception.BaseExceptionCustom;
 import com.liaoyingtai.blog.dao.mapper.about.AboutMeMapper;
 import com.liaoyingtai.blog.entity.about.AboutMe;
+import com.liaoyingtai.blog.entity.userInfo.UserInfo;
+import com.liaoyingtai.blog.exception.base.BlogParameterException;
+import com.liaoyingtai.blog.exception.base.BlogSystemException;
 import com.liaoyingtai.blog.service.about.AboutMeService;
+import com.liaoyingtai.blog.service.userinfo.UserInfoService;
 
 @Service("aboutMeService")
 public class AboutMeServiceImpl implements AboutMeService {
 
 	@Autowired
 	private AboutMeMapper aboutMeMapper;
+	@Autowired
+	private UserInfoService userInfoService;
 
 	public AboutMe getAboutMeByUserId(String userId) throws Exception {
 		if (userId == null || "".equals(userId)) {
-			throw new BaseExceptionCustom("参数错误：查询用户介绍时用户ID不能为空");
+			throw new BlogParameterException("参数错误：查询用户介绍时用户ID不能为空");
 		}
 		AboutMe aboutMe = aboutMeMapper.getAboutMeInfoByUserId(userId);
+		if (aboutMe == null) {
+			UserInfo userInfo = userInfoService.getPortionUserInfoById(userId);
+			aboutMe = new AboutMe();
+			aboutMe.setUserInfo(userInfo);
+			return aboutMe;
+		}
 		// 以下信息为不返回信息
 		aboutMe.getUserInfo().setUserInfo_Account(null);
 		aboutMe.getUserInfo().setUserInfo_Password(null);
@@ -40,12 +51,14 @@ public class AboutMeServiceImpl implements AboutMeService {
 		if (aboutMe.getAboutMe_QQAccount() == 0) {
 			aboutMe.getUserInfo().setUserInfo_QQaccount(null);
 		}
+		int aboutMe_ViewCount = aboutMe.getAboutMe_ViewCount() + 1;
+		aboutMe.setAboutMe_ViewCount(aboutMe_ViewCount);
 		return aboutMe;
 	}
 
 	public void insertAboutMeInfo(AboutMe aboutMe, String userId) throws Exception {
 		if (userId == null || "".equals(userId)) {
-			throw new BaseExceptionCustom("参数错误：插入个人介绍时用户ID不能为空");
+			throw new BlogParameterException("参数错误：插入个人介绍时用户ID不能为空");
 		}
 		if (aboutMe == null) {
 			aboutMe = getDefaultAboutMe(userId);
@@ -59,22 +72,32 @@ public class AboutMeServiceImpl implements AboutMeService {
 		return aboutMe;
 	}
 
-	public void updateAboutMeViewCountByUserId(AboutMe aboutMe, String userId, int num) throws Exception {
-		if (userId == null || "".equals(userId)) {
-			throw new BaseExceptionCustom("参数错误：修改个人介绍时用户ID不能为空");
+	public void updateAboutMeViewCountByUserId(AboutMe aboutMe, String userId) throws Exception {
+		UserInfo userInfo = new UserInfo();
+		userInfo.setMyBlog_UserInfo_id(userId);
+		if (aboutMe.getMyBlog_AboutMe_id() > 0) {
+			updateAboutMe(aboutMe.getMyBlog_AboutMe_id(), aboutMe, userInfo);
+		}
+	}
+
+	@Override
+	public void updateAboutMe(int aboutMeId, AboutMe aboutMe, UserInfo userInfo) throws Exception {
+		if (aboutMeId <= 0) {
+			throw new BlogParameterException("参数错误：个人介绍Id不能为空");
 		}
 		if (aboutMe == null) {
-			throw new BaseExceptionCustom("参数错误：修改个人介绍时个人介绍不能为空");
+			throw new BlogParameterException("参数错误：修改个人介绍时个人介绍不能为空");
 		}
 		if (aboutMe.getAboutMe_UserId() == null || "".equals(aboutMe.getAboutMe_UserId())) {
-			throw new BaseExceptionCustom("参数错误：修改个人介绍时个人介绍中的ID不能为空");
+			throw new BlogParameterException("参数错误：个人介绍中用户Id不能为空");
 		}
-		if (!aboutMe.getAboutMe_UserId().equals(userId)) {
-			throw new BaseExceptionCustom("参数错误：个人介绍中用户ID与参数中用户ID不一致");
+		if (userInfo == null || userInfo.getMyBlog_UserInfo_id() == null
+				|| "".equals(userInfo.getMyBlog_UserInfo_id())) {
+			throw new BlogSystemException("请先登录后再执行修改操作");
 		}
-		int viewCount = aboutMe.getAboutMe_ViewCount();
-		viewCount += num;
-		aboutMe.setAboutMe_ViewCount(viewCount);
+		if (!aboutMe.getAboutMe_UserId().equals(userInfo.getMyBlog_UserInfo_id())) {
+			throw new BlogSystemException("参数错误：个人介绍中用户ID与参数中用户ID不一致");
+		}
 		aboutMeMapper.updateAboutMeInfo(aboutMe);
 	}
 }
