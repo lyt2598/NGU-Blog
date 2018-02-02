@@ -1,0 +1,78 @@
+﻿数据库名称：MyBlog
+数据表命名规则：MyBlog_模块描述1_模块描述2_....
+字段命名规则：
+1.主键命名规则：表名_id(首字母小写)
+2.其他字段命名规则：模块描述_字段描述（首字母小写）
+
+
+菜单目录表（MyBlog_HeadMenu）：
+myBlog_HeadMenu_id，主键(自动增长)
+headMenu_Name，用来记录菜单名称
+headMenu_URL，用来记录菜单的跳转链接
+headMenu_Father，用来记录父菜单的ID，如果没有父菜单不填（自动补0），如果有父菜单填写父菜单ID(也就是本表中的主键)
+headMenu_UserId，用来方便以后扩展为用户自定义菜单栏
+headMenu_Icon，Icon图标
+
+
+用户信息表（MyBlog_UserInfo）：
+myBlog_UserInfo_id:主键（UUID）
+userInfo_Account:用户账号
+userInfo_Name:用于显示的名字
+userInfo_Password:用户密码（MD5加密后的字符串）
+userInfo_Phone:手机号码
+userInfo_Tel:座机号码
+userInfo_Email:邮箱
+userInfo_QQaccount:QQ号码
+userInfo_HeadImg:用户头像
+userInfo_GitHub:GitHub主页
+userInfo_WeChat:微信账号
+userInfo_RegTime:注册时间
+userInfo_Birthday:出生日期
+userInfo_Status:用户状态 （0：正常 1：冻结 2：封停）
+userInfo_Jurisdiction_id:用户权限（权限表中的主键）
+
+用户权限表（MyBlog_User_Jurisdiction）：
+myBlog_User_Jurisdiction_id:主键（自动增长）
+user_Jurisdiction_Name:权限名称
+user_Jurisdiction_AdminPage:是否允许进入后台管理员界面（0：不允许 1：允许）如果此项为0，后面的所有权限都为0
+---后面所有项都为（0：不允许，1允许）
+user_Jurisdiction_LearningNotes:学习笔记管理
+
+
+学习笔记表（MyBlog_LearningNotes）：
+myBlog_LearningNotes_id:主键（自动增长）
+learningNotes_Title:标题
+learningNotes_Context：正文内容
+learningNotes_PubDate：发布时间
+learningNotes_PubUser：发布用户
+learningNotes_Stick：置顶文章（0：不置顶  1：置顶）
+learningNotes_Recommend：首页推存（用于整个博客的首页）（0：不推存  1：推存）
+learningNotes_Private：是否私有（如果设置成私有，那么就只有自己可以看见 0：公开  1：私有 2：被举报后需要整改）
+learningNotes_Relay：是否允许转发（0：允许转发 1：不允许转发）
+learningNotes_ModDate：修改时间
+learningNotes_ViewCount：浏览次数
+learningNotes_Type_id:学习笔记类别
+learningNotes_Tags:关键字，用英文逗号(,)隔开
+
+学习笔记类别表（MyBlog_LearningNotes_Type）：
+myBlog_LearningNotes_Type_id:主键（自动增长）
+learningNotes_Type_Name:名称
+
+个人介绍表（MyBlog_AboutMe）
+myBlog_AboutMe_id：主键（自动增长）
+aboutMe_Skill:技能介绍
+aboutMe_Hobby:爱好介绍
+aboutMe_Describe:个人描述
+aboutMe_Development:开发经验
+aboutMe_Other:其他描述
+aboutMe_UserId:用户ID（用户信息表中主键）
+aboutMe_QQAccount:是否显示QQ号（0:不显示 1：显示）
+aboutMe_Tel:是否显示电话号码（0：不显示 1：显示）
+aboutMe_Phone:是否显示手机号码（0：不显示 1：显示）
+aboutMe_GitHub:是否显示GitHub地址
+aboutMe_ViewCount:浏览次数
+aboutMe_ModDate:最后修改时间
+
+
+
+
