@@ -37,31 +37,31 @@
 								<div id="baseUserInfo">
 									<div id="userInfoHeadImg">
 										<a
-											href="${pageContext.request.contextPath }/aboutMe/${userInfo.myBlog_UserInfo_id}"><img
-											src="${pageContext.request.contextPath }/img/user/head/${userInfo.userInfo_HeadImg}"
+											href="${pageContext.request.contextPath }/aboutMe/${lookUserInfo.myBlog_UserInfo_id}"><img
+											src="${pageContext.request.contextPath }/img/user/head/${lookUserInfo.userInfo_HeadImg}"
 											class="img-circle"></a>
 									</div>
 									<div id="userInfo">
 										<span class="userInfoSpan" data-toggle="tooltip"
 											data-placement="top" data-original-title="用户名字"><i
-											class="fa fa-user" aria-hidden="true"></i>${userInfo.userInfo_Name }</span><span
+											class="fa fa-user" aria-hidden="true"></i>${lookUserInfo.userInfo_Name }</span><span
 											class="userInfoSpan" data-toggle="tooltip"
 											data-placement="top" data-original-title="用户邮箱"><a
-											href="mailto:${userInfo.userInfo_Email }"><i
-												class="fa fa-envelope" aria-hidden="true"></i>${userInfo.userInfo_Email }</a></span>
+											href="mailto:${lookUserInfo.userInfo_Email }"><i
+												class="fa fa-envelope" aria-hidden="true"></i>${lookUserInfo.userInfo_Email }</a></span>
 									</div>
 								</div>
 								<hr>
 								<span class="userInfoSpan" data-toggle="tooltip"
 									data-placement="top" data-original-title="QQ"><i
-									class="fa fa-qq" aria-hidden="true"></i>QQ：${userInfo.userInfo_QQaccount }</span>
+									class="fa fa-qq" aria-hidden="true"></i>QQ：${lookUserInfo.userInfo_QQaccount }</span>
 								<span class="userInfoSpan" data-toggle="tooltip"
 									data-placement="top" data-original-title="微信"><i
-									class="fa fa-weixin" aria-hidden="true"></i>微信：${userInfo.userInfo_WeChat }</span>
+									class="fa fa-weixin" aria-hidden="true"></i>微信：${lookUserInfo.userInfo_WeChat }</span>
 								<span class="userInfoSpan" data-toggle="tooltip"
 									data-placement="top" data-original-title="GitHub"><i
 									class="fa fa-github-square" aria-hidden="true"></i>GitHub：<a
-									href="${userInfo.userInfo_GitHub }" target="_black">点击进入Ta的GitHub</a></span>
+									href="${lookUserInfo.userInfo_GitHub }" target="_black">点击进入Ta的GitHub</a></span>
 							</div>
 						</div>
 						<div class="boxShadow rightList" align="center">
