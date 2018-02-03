@@ -13,7 +13,7 @@
 		</div>
 		<div class="collapse navbar-collapse" id="example-navbar-collapse">
 			<ul class="nav navbar-nav navbar-left" id="indexMenu">
-				<c:forEach items="${sessionScope.headMenuList }" var="pmenu">
+				<c:forEach items="${headMenuList }" var="pmenu">
 					<c:choose>
 						<c:when
 							test="${pmenu.headMenu_URL == null || pmenu.headMenu_URL == ''}">

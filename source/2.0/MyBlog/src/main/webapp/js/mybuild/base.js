@@ -15,7 +15,6 @@ function getBaiduFXHTML() {
 			+ '<a href="#" class="bds_copy" data-cmd="copy" title="分享到复制网址"></a></div>';
 	return html;
 }
-// 登陆窗口被隐藏时动作
 $(function() {
 	$(window).scroll(function() {
 		var scrollTop = $(this).scrollTop();
@@ -26,21 +25,17 @@ $(function() {
 		}
 	});
 	$("[data-toggle='tooltip']").tooltip();
+	// 登陆窗口被隐藏时动作
 	$('#loginModal').on('hide.bs.modal', function() {
 		$("#loginModal #login_username").val("");
 		$("#loginModal #login_password").val("");
 		$("#loginModal #login_checkcode").val("");
 		$("#loginModal #loginMessage").html("");
 		$("#loginModal #loginMessage").removeAttr("class");
-		var bp = document.createElement('script');
-		var curProtocol = window.location.protocol.split(':')[0];
-		if (curProtocol === 'https') {
-			bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
-		} else {
-			bp.src = 'http://push.zhanzhang.baidu.com/push.js';
-		}
-		var s = document.getElementsByTagName("script")[0];
-		s.parentNode.insertBefore(bp, s);
+	});
+	$('#searchModal').on('hide.bs.modal', function() {
+		$("#searchModal #searchData").val("");
+		$("#loginModal .modal-body").html('<div class="no-search-result"><i class="fa fa-frown-o fa-5x"></i><p>没有找到符合要求的内容</p></div>');
 	});
 	// 当点击跳转链接后，回到页面顶部位置
 	$("#goTop").click(function() {
@@ -55,6 +50,15 @@ $(function() {
 		}, 100);
 		return false;
 	});
+	var bp = document.createElement('script');
+	var curProtocol = window.location.protocol.split(':')[0];
+	if (curProtocol === 'https') {
+		bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+	} else {
+		bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+	}
+	var s = document.getElementsByTagName("script")[0];
+	s.parentNode.insertBefore(bp, s);
 });
 // 百度分享
 window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"LYT - NGU - 个人主页 www.liaoyingtai.com","bdMini":"1","bdMiniList":false,"bdPic":"http://liaoyingtai.com/img/favicon.png","bdStyle":"0","bdSize":"16"},"share":{},"image":{"viewList":["weixin","qzone","tsina","sqq","tieba","tqq","renren","bdhome","fbook","evernotecn","linkedin","print","copy"],"viewText":"分享到：","viewSize":"16"},"selectShare":{"bdContainerClass":null,"bdSelectMiniList":["weixin","qzone","tsina","sqq","tieba","tqq","renren","bdhome","fbook","evernotecn","linkedin","print","copy"]}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];

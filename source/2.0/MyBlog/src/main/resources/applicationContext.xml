@@ -46,6 +46,7 @@
 			<!-- 发表东西时不进行拦截 -->
 			<mvc:exclude-mapping path="/ajax/**" />
 			<mvc:exclude-mapping path="/post/**" />
+			<mvc:exclude-mapping path="/checkCode/**" />
 			<!-- 拦截请求，加载头部菜单 -->
 			<bean
 				class="com.liaoyingtai.blog.controller.interceptor.MyHandlerInterceptor" />

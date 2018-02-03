@@ -11,15 +11,17 @@ public interface LearningNotesService {
 	/**
 	 * 查询学习笔记文章列表
 	 * 
+	 * @param userId
+	 *            需要查询的用户id
 	 * @param currentUser
-	 *            当前登录用户信息
+	 *            当前登录用户信息,如果为空则查询该用户非私有的文章
 	 * @param selectParam
 	 *            查询参数
 	 * @return
 	 * @throws Exception
 	 */
-	public LearningNotesCustom getLearningNotesList(UserInfo currentUser, LearningNotesCustom selectParam)
-			throws Exception;
+	public LearningNotesCustom getLearningNotesList(String userId, UserInfo currentUser,
+			LearningNotesCustom selectParam) throws Exception;
 
 	/**
 	 * 发表学习笔记文章

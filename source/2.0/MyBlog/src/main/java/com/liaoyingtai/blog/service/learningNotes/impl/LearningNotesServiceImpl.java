@@ -22,8 +22,8 @@ public class LearningNotesServiceImpl implements LearningNotesService {
 	@Autowired
 	private LearningNotesMapper learningNotesMapper;
 
-	public LearningNotesCustom getLearningNotesList(UserInfo currentUser, LearningNotesCustom selectParam)
-			throws Exception {
+	public LearningNotesCustom getLearningNotesList(String userId, UserInfo currentUser,
+			LearningNotesCustom selectParam) throws Exception {
 		int page = selectParam.getPage();
 		int limit = selectParam.getLimit();
 		if (page <= 0) {
@@ -32,18 +32,18 @@ public class LearningNotesServiceImpl implements LearningNotesService {
 		if (limit <= 0) {
 			limit = 10;
 		}
-		if (selectParam.getLearningNotes_PubUser() == null || "".equals(selectParam.getLearningNotes_PubUser())) {
+		if (userId == null || "".equals(userId)) {
 			throw new BlogParameterException("参数错误：查询文章时用户ID不能为空");
+		}
+		// 当前登录用户不等于null并且当前登录用户的id等于需要查询的用户id
+		if (currentUser != null && currentUser.getMyBlog_UserInfo_id().equals(selectParam.getLearningNotes_PubUser())) {
+			// 任意设置一个非0的值即可查询所有文章
+			selectParam.setLearningNotes_Private(1);
+		} else {
+			selectParam.setLearningNotes_Private(0);
 		}
 		selectParam.setLimit(limit);
 		selectParam.setPage(page);
-		if (currentUser == null
-				|| !currentUser.getMyBlog_UserInfo_id().equals(selectParam.getLearningNotes_PubUser())) {
-			selectParam.setLearningNotes_Private(0);
-		} else {
-			// 任意设置一个非0的值即可查询所有文章
-			selectParam.setLearningNotes_Private(1);
-		}
 		// 将id设置为0，不加入查询条件，具体看learningNotesMapper配置
 		selectParam.setMyBlog_LearningNotes_id(0);
 		int totalCount = learningNotesMapper.getLearningNotesListCount(selectParam);

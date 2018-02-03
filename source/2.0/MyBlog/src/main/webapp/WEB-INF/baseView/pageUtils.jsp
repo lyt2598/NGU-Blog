@@ -34,10 +34,10 @@
 							onfocus="checkPassWord()" onblur="checkCheckCode()">
 					</div>
 					<div class="input-group col-sm-8">
-						<img src="${pageContext.request.contextPath }/checkCode"
+						<img src="${pageContext.request.contextPath }/img/checkCode"
 							class="img-rounded" id="checkCodeImg" height="130px" width="100%"
 							title="看不清？点击即可更换"
-							onclick="this.src='${pageContext.request.contextPath }/checkCode?'+ new Date().getTime()" />
+							onclick="this.src='${pageContext.request.contextPath }/img/checkCode?'+ new Date().getTime()" />
 					</div>
 				</div>
 			</div>
@@ -65,10 +65,6 @@
 					placeholder="请输入需要查询的内容">
 			</div>
 			<div class="modal-body modal-body-custom">
-				<div class="no-search-result">
-					<i class="fa fa-frown-o fa-5x"></i>
-					<p>没有找到符合要求的内容</p>
-				</div>
 				<div class="no-search-result">
 					<i class="fa fa-frown-o fa-5x"></i>
 					<p>没有找到符合要求的内容</p>

@@ -27,10 +27,6 @@
 	<script type="text/javascript">
 		$(document).ready(function(e) {
 			var uid = '${userId}';
-			var html = getLearningNotesListBaseHtml(uid);
-			//checkUserLogin();
-			setPanelBody(html);
-			getLearningNotestList(uid, 1, 20);
 			$("#searchData").keydown(function(e) {
 				if (e.keyCode == 13) {
 					search(uid);

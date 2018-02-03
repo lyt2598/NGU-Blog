@@ -32,8 +32,8 @@
 		<result column="headMenu_Father" property="headMenu_Father" />
 		<result column="headMenu_UserId" property="headMenu_UserId" />
 		<result column="headMenu_Icon" property="headMenu_Icon" />
-		<!-- 暂时用不上先屏蔽 -->
-		<!-- <association property="userInfo" column="headMenu_UserId" select="com.liaoyingtai.blog.dao.mapper.userInfo.UserInfoMapper.getUserInfoById" 
+		<!-- 暂时用不上 -->
+		<!-- <association property="userInfo" column="headMenu_UserId" select="com.liaoyingtai.blog.dao.mapper.userInfo.UserInfoMapper.getPortionUserInfoById" 
 			/> -->
 	</resultMap>
 

@@ -4,7 +4,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<title>${userInfo.userInfo_Name }&nbsp;-&nbsp;个人主页&nbsp;-&nbsp;Nerver&nbsp;Give&nbsp;Up</title>
+<title>${lookUserInfo.userInfo_Name }&nbsp;-&nbsp;首页&nbsp;-&nbsp;个人主页&nbsp;-&nbsp;Nerver&nbsp;Give&nbsp;Up</title>
 <%@ include file="../baseView/pageBaseCSS.jsp"%>
 <%@ include file="../baseView/pageBaseJS.jsp"%>
 <link rel="stylesheet"
@@ -20,6 +20,10 @@
 		<div class="panel panel-primary">
 			<%@ include file="../baseView/pageContext-title.jsp"%>
 			<div class="my-panel-body" id="panel-body">
+				<ol class="breadcrumb">
+					<li class="active">当前位置</li>
+					<li class="active">首页</li>
+				</ol>
 				<!-- 正文内容 -->
 				<div id="indexContext">
 					<div id="indexRight" class="lnHidden">

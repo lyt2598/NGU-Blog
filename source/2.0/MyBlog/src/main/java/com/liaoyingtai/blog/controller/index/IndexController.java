@@ -28,13 +28,11 @@ public class IndexController extends MyExceptionResolverResultPage {
 		LearningNotesCustom learningNotesCustom = new LearningNotesCustom();
 		learningNotesCustom.setPage(1);
 		learningNotesCustom.setLimit(5);
-		learningNotesCustom.setLearningNotes_PubUser(uid);
-		learningNotesCustom = learningNotesService.getLearningNotesList(null, learningNotesCustom);
+		learningNotesCustom = learningNotesService.getLearningNotesList(uid, null, learningNotesCustom);
 		model.addAttribute("lnList", learningNotesCustom);
 		// 读取用户信息
 		UserInfo userInfo = userInfoService.getPortionUserInfoById(uid);
 		model.addAttribute("userInfo", userInfo);
-
 		return "index";
 	}
 }

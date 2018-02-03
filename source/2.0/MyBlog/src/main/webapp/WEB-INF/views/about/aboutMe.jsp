@@ -4,13 +4,9 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<title>标题</title>
+<title>${lookUserInfo.userInfo_Name }&nbsp;-&nbsp;个人介绍&nbsp;-&nbsp;个人主页&nbsp;-&nbsp;Nerver&nbsp;Give&nbsp;Up</title>
 <%@ include file="../../baseView/pageBaseCSS.jsp"%>
 <%@ include file="../../baseView/pageBaseJS.jsp"%>
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath }/css/mybuild/other/index.css">
-<script
-	src="${pageContext.request.contextPath }/js/mybuild/utils/dateFormat.js"></script>
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath }/css/mybuild/aboutMe/aboutMe.css" />
 </head>
@@ -37,6 +33,12 @@
 							</p>
 						</div>
 					</div>
+					<ol class="breadcrumb">
+						<li class="active">当前位置</li>
+						<li><a
+							href="${pageContext.request.contextPath }/index/${userId}">首页</a></li>
+						<li>个人介绍</li>
+					</ol>
 					<div class="about_me_context">
 						<c:choose>
 							<c:when test="${aboutMe!=null}">
