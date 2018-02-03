@@ -8,7 +8,7 @@
 <%@ include file="../baseView/pageBaseCSS.jsp"%>
 <%@ include file="../baseView/pageBaseJS.jsp"%>
 <link rel="stylesheet"
-	href="${pageContext.request.contextPath }/css/mybuild/other/index.css">
+	href="${pageContext.request.contextPath }/css/mybuild/index.css">
 <script
 	src="${pageContext.request.contextPath }/js/mybuild/utils/dateFormat.js"></script>
 <script src="${pageContext.request.contextPath }/js/mybuild/index.js"></script>
@@ -54,13 +54,12 @@
 								<hr>
 								<span class="userInfoSpan" data-toggle="tooltip"
 									data-placement="top" data-original-title="QQ"><i
-									class="fa fa-qq" aria-hidden="true"></i>QQ：${lookUserInfo.userInfo_QQaccount }</span>
-								<span class="userInfoSpan" data-toggle="tooltip"
-									data-placement="top" data-original-title="微信"><i
-									class="fa fa-weixin" aria-hidden="true"></i>微信：${lookUserInfo.userInfo_WeChat }</span>
+									class="fab fa-qq"></i>QQ：${lookUserInfo.userInfo_QQaccount }</span> <span
+									class="userInfoSpan" data-toggle="tooltip" data-placement="top"
+									data-original-title="微信"><i class="fab fa-weixin"></i>微信：${lookUserInfo.userInfo_WeChat }</span>
 								<span class="userInfoSpan" data-toggle="tooltip"
 									data-placement="top" data-original-title="GitHub"><i
-									class="fa fa-github-square" aria-hidden="true"></i>GitHub：<a
+									class="fab fa-github"></i>GitHub：<a
 									href="${lookUserInfo.userInfo_GitHub }" target="_black">点击进入Ta的GitHub</a></span>
 							</div>
 						</div>
@@ -84,13 +83,14 @@
 									</a>
 									<div class="lnText" id="${lnInfo.myBlog_LearningNotes_id }">${lnInfo.learningNotes_Context }</div>
 									<div class="lnMore"
-										onclick="javascript:location.href='${pageContext.request.contextPath }/learningNotes/${lnInfo.learningNotes_PubUser }/${lnInfo.myBlog_LearningNotes_id}'">阅读全文</div>
+										onclick="javascript:location.href='${pageContext.request.contextPath }/learningNotes/${lnInfo.learningNotes_PubUser }/${lnInfo.myBlog_LearningNotes_id}'">
+										<i class="fas fa-hand-point-right"></i>阅读全文
+									</div>
 									<div class="lnView lnHidden">
 										<span class="view"><span class="badge"><i
 												class="fa fa-eye i-default" aria-hidden="true"></i>浏览次数：
 												${lnInfo.learningNotes_ViewCount }</span></span><span class="view"><span
-											class="badge"><i class="fa fa-commenting-o i-default"
-												aria-hidden="true"></i>评论次数：<span
+											class="badge"><i class="fas fa-comment-alt"></i>评论次数：<span
 												id="sourceId::/learningNotes/${lnInfo.learningNotes_PubUser }/${lnInfo.myBlog_LearningNotes_id}"
 												class="cy_cmt_count"></span></span> <script id="cy_cmt_num"
 												src="https://changyan.sohu.com/upload/plugins/plugins.list.count.js?clientId=cytqfnp8B">

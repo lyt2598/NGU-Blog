@@ -88,6 +88,10 @@
 	padding-bottom: 15px;
 }
 
+.searchButton{
+	height: 34px !important;
+}
+
 @media screen and (max-width: 767px) {
 	.lnTitle {
 		width: 230px !important;

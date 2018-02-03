@@ -46,7 +46,7 @@
 									<c:if test="${aboutMe.aboutMe_Describe!=null }">
 										<li><div class="list_right">
 												<h1>
-													<i class="fa fa-commenting-o" aria-hidden="true"></i><span
+													<i class="far fa-comment-alt"></i><span
 														class="list_right_title">个人描述</span>
 												</h1>
 												<pre class="list_right_context">${aboutMe.aboutMe_Describe }</pre>
@@ -97,7 +97,7 @@
 												<c:if
 													test="${aboutMe.userInfo.userInfo_QQaccount!=null && aboutMe.userInfo.userInfo_QQaccount!=''}">
 													<p>
-														<i class="fa fa-qq" aria-hidden="true"></i>&nbsp;QQ号码： <a
+														<i class="fab fa-qq"></i>QQ号码： <a
 															href="http://wpa.qq.com/msgrd?v=3&uin=${aboutMe.userInfo.userInfo_QQaccount }&site=qq&menu=yes"
 															target="_blank">${aboutMe.userInfo.userInfo_QQaccount }</a>
 													</p>
@@ -106,19 +106,19 @@
 													test="${aboutMe.aboutMe_Phone == 1 && aboutMe.userInfo.userInfo_Phone != null
 			&& aboutMe.userInfo.userInfo_Phone != '' }">
 													<p>
-														<i class="fa fa-fax" aria-hidden="true"></i>&nbsp;电话号码：${aboutMe.userInfo.userInfo_Phone }
+														<i class="fa fa-fax" aria-hidden="true"></i>电话号码：${aboutMe.userInfo.userInfo_Phone }
 													</p>
 												</c:if>
 												<c:if
 													test="${aboutMe.userInfo.userInfo_GitHub!=null &&  aboutMe.userInfo.userInfo_GitHub!=''}">
 													<p>
-														<i class="fa fa-github" aria-hidden="true"></i>&nbsp;GitHub：<a
+														<i class="fab fa-github"></i>GitHub：<a
 															target="_blank"
 															href="${aboutMe.userInfo.userInfo_GitHub }">${aboutMe.userInfo.userInfo_GitHub }</a>
 													</p>
 												</c:if>
 												<p>
-													<i class="fa fa-envelope" aria-hidden="true"></i>&nbsp;Email：<a
+													<i class="fa fa-envelope" aria-hidden="true"></i>Email：<a
 														href="mailto:${aboutMe.userInfo.userInfo_Email }">${aboutMe.userInfo.userInfo_Email }</a>
 												</p>
 											</div>

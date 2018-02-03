@@ -16,8 +16,9 @@
 	href="${pageContext.request.contextPath}/img/favicon.ico" />
 <link rel="shortcut icon"
 	href="${pageContext.request.contextPath}/img/favicon.ico">
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath }/css/referenced/font-awesome/font-awesome.min.css">
+<%-- <link rel="stylesheet"
+	href="${pageContext.request.contextPath }/css/referenced/font-awesome/font-awesome.min.css"> --%>
+	<link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath }/css/referenced/bootstrap/bootstrap.min.css">
 <link rel="stylesheet"

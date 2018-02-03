@@ -12,7 +12,6 @@ function getFirstImgSrc(text) {
 	}
 	var i = "src=\"".length;
 	resultSrc = resultSrc[0].substring(i, resultSrc[0].length - 1);
-	console.log(resultSrc);
 	return resultSrc;
 }
 // 读取纯文本内容，剔除html标签
@@ -23,7 +22,7 @@ function getContext(text) {
 // 读取当前时间
 function getTimeHtml() {
 	var date = new Date().format("yyyy年MM月dd日 hh:mm:ss");
-	var html = '<i class="fa fa-clock-o i-default" aria-hidden="true"></i>'
+	var html = '<i class="fas fa-clock"></i>'
 			+ date
 	$(".dataTime").html(html);
 	setTimeout("getTimeHtml()", 1000);

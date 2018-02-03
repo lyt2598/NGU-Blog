@@ -39,9 +39,9 @@
 							<div class="input-group">
 								<input type="text" id="searchData" class="form-control"
 									placeholder="请输入需要查询的内容"><span class="input-group-btn"><button
-										title="点击查询" class="btn btn-default"
+										title="点击查询" class="btn btn-default searchButton"
 										onclick="search('${userId}')">
-										<i class="fa fa-search" aria-hidden="true"></i>&nbsp;
+										<i class="fa fa-search"></i>
 									</button></span>
 							</div>
 						</form>
@@ -65,7 +65,7 @@
 													<c:when test="${ln.learningNotes_Stick==1 }">
 														<tr>
 															<a class="a-i" title="置頂文章"><i
-																class="fa fa-thumb-tack i-pink" aria-hidden="true"></i></a>
+																class="fas fa-thumbtack"></i></a>
 													</c:when>
 													<c:otherwise>
 														<i class="fa fa-list-alt" aria-hidden="true"></i>
@@ -78,21 +78,18 @@
 													<c:choose>
 														<c:when test="${ln.learningNotes_Private==1 }">
 															<a class="a-i" title="此文章仅自己可见"><i
-																class="fa fa-eye-slash i-red" aria-hidden="true"></i></a>
+																class="fas fa-eye-slash"></i></a>
 														</c:when>
 														<c:when test="${ln.learningNotes_Private==2 }">
 															<a class="a-i" title="此文章已被举报多次,禁止显示.请立即修改"><i
-																class="fa fa-exclamation-triangle i-yellow"
-																aria-hidden="true"></i></a>
+																class="fas fa-exclamation-triangle"></i></a>
 														</c:when>
 													</c:choose>
 												</div></td>
-											<td class="ln-hidden"><i class="fa fa-clock-o i-default"
-												aria-hidden="true"></i>${ln.learningNotes_PubDate }</td>
+											<td class="ln-hidden"><i class="fas fa-clock"></i>${ln.learningNotes_PubDate }</td>
 											<td class="ln-hidden"><i class="fa fa-eye i-default"
 												aria-hidden="true"></i>${ln.learningNotes_ViewCount }</td>
-											<td class="ln-hidden"><i
-												class="fa fa-commenting-o i-default" aria-hidden="true"></i><span
+											<td class="ln-hidden"><i class="fas fa-comment-alt"></i><span
 												id="sourceId::/learningNotes/${ln.learningNotes_PubUser }/${ln.myBlog_LearningNotes_id }"
 												class="cy_cmt_count"></span> <script id="cy_cmt_num"
 													src="https://changyan.sohu.com/upload/plugins/plugins.list.count.js?clientId=cytqfnp8B"></script></td>

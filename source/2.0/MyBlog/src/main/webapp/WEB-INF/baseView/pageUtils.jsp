@@ -66,7 +66,7 @@
 			</div>
 			<div class="modal-body modal-body-custom">
 				<div class="no-search-result">
-					<i class="fa fa-frown-o fa-5x"></i>
+					<i class="fas fa-frown fa-5x"></i>
 					<p>没有找到符合要求的内容</p>
 				</div>
 			</div>
@@ -75,6 +75,17 @@
 	</div>
 	<!-- /.modal -->
 </div>
-<div id="goTop" align="center">
-	<i class="fa fa-chevron-up" aria-hidden="true"></i>
+<div id="floatMenu">
+	<div id="goTop" align="center">
+		<i class="fa fa-chevron-up" aria-hidden="true"></i>
+	</div>
+	<div id="info" align="center">
+		<i class="fas fa-info-circle"></i>
+	</div>
+	<div id="qrcode" align="center">
+		<i class="fas fa-qrcode"></i>
+	</div>
+	<div id="fx" align="center">
+		<i class="fas fa-plus"></i>
+	</div>
 </div>

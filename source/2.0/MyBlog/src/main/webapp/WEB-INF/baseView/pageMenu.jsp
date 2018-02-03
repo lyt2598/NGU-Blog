@@ -9,7 +9,7 @@
 					class="icon-bar"></span> <span class="icon-bar"></span>
 			</button>
 			<a class="navbar-brand"
-				href="${pageContext.request.contextPath}/index/${userId}">NGU&nbsp;-&nbsp;个人主页</a>
+				href="${pageContext.request.contextPath}/index/${userId}"><i class="fab fa-drupal"></i>NGU&nbsp;-&nbsp;个人主页</a>
 		</div>
 		<div class="collapse navbar-collapse" id="example-navbar-collapse">
 			<ul class="nav navbar-nav navbar-left" id="indexMenu">
@@ -83,8 +83,7 @@
 							target="blank"><i class="fa fa-plus" aria-hidden="true"></i>
 								注册</a></li> --%>
 						<li><a href="javascript:void(0)" data-toggle="modal"
-							data-target="#loginModal"><i class="fa fa-sign-in"
-								aria-hidden="true"></i> 登录</a></li>
+							data-target="#loginModal"><i class="fas fa-user-circle"></i>登录</a></li>
 					</c:otherwise>
 				</c:choose>
 			</ul>
