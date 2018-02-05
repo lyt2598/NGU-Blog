@@ -1,5 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
-<div class="panel-heading">
+<div class="panel-heading noselect">
 	<h3 class="panel-title" style="display: inline-block;">Nerver
 		Give Up</h3>
 	<span data-toggle="tooltip"

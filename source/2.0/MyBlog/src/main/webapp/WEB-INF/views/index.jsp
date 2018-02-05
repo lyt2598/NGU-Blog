@@ -20,7 +20,7 @@
 		<div class="panel panel-primary">
 			<%@ include file="../baseView/pageContext-title.jsp"%>
 			<div class="my-panel-body" id="panel-body">
-				<ol class="breadcrumb">
+				<ol class="breadcrumb noselect">
 					<li class="active">当前位置</li>
 					<li class="active">首页</li>
 				</ol>
@@ -28,11 +28,11 @@
 				<div id="indexContext">
 					<div id="indexRight" class="lnHidden">
 						<div class="boxShadow rightList" align="center">
-							<div class="title">当前时间</div>
+							<div class="title noselect">当前时间</div>
 							<div class="dataTime rightContext"></div>
 						</div>
 						<div class="boxShadow rightList">
-							<div class="title">用户资料</div>
+							<div class="title noselect">用户资料</div>
 							<div class="indexUserInfo rightContext">
 								<div id="baseUserInfo">
 									<div id="userInfoHeadImg">
@@ -64,7 +64,7 @@
 							</div>
 						</div>
 						<div class="boxShadow rightList" align="center">
-							<div class="title">网站分享</div>
+							<div class="title noselect">网站分享</div>
 							<div class="baiduFX rightContext"></div>
 						</div>
 					</div>
@@ -81,7 +81,10 @@
 										<span class="lnTitle"><span class="lnType lnHidden">[${lnInfo.learningNotesType.learningNotes_Type_Name }]</span>
 											${lnInfo.learningNotes_Title } </span>
 									</a>
-									<div class="lnText" id="${lnInfo.myBlog_LearningNotes_id }">${lnInfo.learningNotes_Context }</div>
+									<div class="lnText" id="${lnInfo.myBlog_LearningNotes_id }">
+										<span class="loadingText"><i class="fas fa-spinner"></i>正在加载中...</span>
+										<input type="hidden" value='${lnInfo.learningNotes_Context }'>
+									</div>
 									<div class="lnMore"
 										onclick="javascript:location.href='${pageContext.request.contextPath }/learningNotes/${lnInfo.learningNotes_PubUser }/${lnInfo.myBlog_LearningNotes_id}'">
 										<i class="fas fa-hand-point-right"></i>阅读全文
@@ -109,18 +112,12 @@
 	</div>
 	<%@ include file="../baseView/pageUtils.jsp"%>
 	<script type="text/javascript">
-		$(document).ready(
-				function() {
-					$(".baiduFX").html(getBaiduFXHTML());
-					//读取系统时间
-					getTimeHtml();
-					$(".lnText").html(
-							function(index, html) {
-								$(".lnImage:eq(" + index + ")").attr("src",
-										getFirstImgSrc(html));
-								$(this).html(getContext(html));
-							});
-				});
+		$(document).ready(function() {
+			$(".baiduFX").html(getBaiduFXHTML());
+			//读取系统时间
+			getTimeHtml();
+			setIndexLNList();
+		});
 	</script>
 </body>
 </html>

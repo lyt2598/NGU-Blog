@@ -48,7 +48,7 @@
 					</div>
 					<table class="table table-striped table-bordered table-condensed">
 						<thead>
-							<tr>
+							<tr class="noselect">
 								<th class="textAlign ln-hidden">#</th>
 								<th>文章标题</th>
 								<th class="ln-hidden">发布时间</th>

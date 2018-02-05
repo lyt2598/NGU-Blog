@@ -76,16 +76,29 @@
 	<!-- /.modal -->
 </div>
 <div id="floatMenu">
-	<div id="goTop" align="center">
-		<i class="fa fa-chevron-up" aria-hidden="true"></i>
+	<div id="goTop" class="floatMenuList noselect" align="center">
+		<i class="fa fa-chevron-up" aria-hidden="true"></i> <span class="text">回到顶部</span>
 	</div>
-	<div id="info" align="center">
-		<i class="fas fa-info-circle"></i>
+	<div id="info" class="floatMenuList noselect" align="center">
+		<div class="context">
+			<h2>关于本站</h2>
+			<p>网址：www.liaoyingtai.com</p>
+			<p>用途：主要用来记录在学习过程中遇到的问题与解决方法</p>
+			<p>开发人员：LiaoYingTai</p>
+			<p>
+				<font color="red">*手机端点击空白处即可隐藏本窗口</font>
+			</p>
+		</div>
+		<i class="fas fa-info-circle"></i> <span class="text">关于本站</span>
 	</div>
-	<div id="qrcode" align="center">
-		<i class="fas fa-qrcode"></i>
+	<div id="qrcode" class="floatMenuList noselect" align="center">
+		<div class="context" style="text-align: center;">
+			<img alt="二维码" src="${pageContext.request.contextPath }/img/qrcode.jpg" width="200px" height="200px">
+		</div>
+		<i class="fas fa-qrcode"></i> <span class="text">二维码</span>
 	</div>
-	<div id="fx" align="center">
-		<i class="fas fa-plus"></i>
+	<div id="fx" class="floatMenuList noselect" align="center"
+		onclick="AddFavorite()">
+		<i class="fas fa-plus"></i><span class="text">收藏本站</span>
 	</div>
 </div>

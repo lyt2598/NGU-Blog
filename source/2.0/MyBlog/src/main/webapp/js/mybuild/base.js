@@ -15,6 +15,20 @@ function getBaiduFXHTML() {
 			+ '<a href="#" class="bds_copy" data-cmd="copy" title="分享到复制网址"></a></div>';
 	return html;
 }
+// 添加到收藏夹
+function AddFavorite(){
+	var title=$("title").html();
+	var url=window.location.href;
+	try{
+		window.external.addFavorite(url,title);
+	}catch(e){
+		try{
+			window.sidebar.addPanel(title,url,"");
+		}catch(e){
+		   alert("抱歉，您所使用的浏览器无法完成此操作。\n\n请使用快捷键Ctrl+D进行添加！");
+		}
+	}
+}
 $(function() {
 	$(window).scroll(function() {
 		var scrollTop = $(this).scrollTop();
@@ -24,7 +38,7 @@ $(function() {
 			$("#goTop").fadeOut(500);
 		}
 	});
-	$("[data-toggle='tooltip']").tooltip();
+	$("[data-toggle='tooltip']").tooltip({html : true });
 	// 登陆窗口被隐藏时动作
 	$('#loginModal').on('hide.bs.modal', function() {
 		$("#loginModal #login_username").val("");
@@ -48,7 +62,17 @@ $(function() {
 		$('body').animate({
 			scrollTop : 0
 		}, 100);
+		$(this).blur();
 		return false;
+	});
+	$(".floatMenuList").hover(function(){
+		$(".text",this).css("display","block");
+		$(".context",this).css("display","block");
+		$("i",this).css("display","none");
+	},function(){
+		$(".text",this).css("display","none");
+		$(".context",this).css("display","none");
+		$("i",this).css("display","block");
 	});
 	var bp = document.createElement('script');
 	var curProtocol = window.location.protocol.split(':')[0];

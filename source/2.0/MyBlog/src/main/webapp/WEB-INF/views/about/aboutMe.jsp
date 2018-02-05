@@ -33,7 +33,7 @@
 							</p>
 						</div>
 					</div>
-					<ol class="breadcrumb">
+					<ol class="breadcrumb noselect">
 						<li class="active">当前位置</li>
 						<li><a
 							href="${pageContext.request.contextPath }/index/${userId}">首页</a></li>

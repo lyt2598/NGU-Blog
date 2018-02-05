@@ -1,5 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
-<div class="body-footer">
+<div class="body-footer noselect">
 	<p>
 		友情链接：<a href="http://www.baidu.com" target="_black">百度</a>&nbsp;&nbsp;<a
 			href="http://fzhnb.com" target="_black">豪豪商城</a>

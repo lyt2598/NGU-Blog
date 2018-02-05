@@ -124,27 +124,91 @@ i {
 	display: none;
 }
 
-#floatMenu div:hover {
+#floatMenu .floatMenuList:hover {
 	background: #E5E5E5;
 }
 
-#floatMenu div {
+#floatMenu .floatMenuList {
 	background: #fff;
 	border: 1px solid #999;
 	color: #999;
+	cursor: pointer;
+}
+
+.noselect{
+	-webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.loadingText i {
+	animation: spin 800ms infinite;
+}
+
+.loadingText{
+	font-size: 28px;
+	color: #999;
+}
+
+.floatMenuList .context{
+		display:none;
+		background: #E5E5E5;
+		width:240px;
+		font-size: 12px;
+		position: absolute;
+		padding: 10px;
+		color: #000;
+		background: #eff1f4;
+		border-radius: 3px;
+		box-shadow: 0 2px 3px #ccc;
+		border: 1px solid #ccc;
+		text-align: left;
+	}
+	.floatMenuList .text{
+		display: none;
+		font-weight: bold;
+	}
+
+@keyframes spin {
+  0%   { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+@keyframes second-half-hide {
+  0%        { opacity: 1; }
+  50%, 100% { opacity: 0; }
+}
+@keyframes second-half-show {
+  0%        { opacity: 0; }
+  50%, 100% { opacity: 1; }
 }
 
 @media screen and (max-width: 767px) {
 	.logo-div {
 		height: 100px;
 	}
-	#floatMenu div i {
+	#floatMenu .floatMenuList i {
 		margin: 10px !important;
 	}
 	#floatMenu {
 		position: fixed;
 		bottom: 193px;
-		right: 2px;
+		left: 2px;
+	}
+	.floatMenuList .context{
+		font-size: 12px;
+		left: 35px;
+	    bottom: 0px;
+	}
+	.floatMenuList .text{
+		font-size: 10px;
+		margin: 4px 5px;
+	}
+	#floatMenu .floatMenuList {
+		width: 35px;
+		height: 35px;
 	}
 }
 
@@ -154,13 +218,22 @@ i {
 		bottom: 100px;
 		right: 80px;
 	}
-	#floatMenu div i {
+	#floatMenu .floatMenuList i {
 		margin: 0px !important;
+		margin-top: 10px !important;
 	}
-	#floatMenu div {
+	#floatMenu .floatMenuList {
 		width: 50px;
 		height: 50px;
 		font-size: 30px;
-		padding-top: 10px;
+	}
+	.floatMenuList .context{
+		font-size: 12px;
+		right: 53px;
+	    bottom: 0px;
+	}
+	.floatMenuList .text{
+		font-size: 14px;
+		margin: 5px 10px;
 	}
 }
