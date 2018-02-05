@@ -79,6 +79,18 @@
 	<div id="goTop" class="floatMenuList noselect" align="center">
 		<i class="fa fa-chevron-up" aria-hidden="true"></i> <span class="text">回到顶部</span>
 	</div>
+	<div id="qrcode" class="floatMenuList noselect" align="center">
+		<div class="context" style="text-align: center;">
+			<img alt="二维码"
+				src="${pageContext.request.contextPath }/img/qrcode.png"
+				width="200px" height="200px">
+		</div>
+		<i class="fas fa-qrcode"></i> <span class="text">二维码</span>
+	</div>
+	<div id="fx" class="floatMenuList noselect" align="center"
+		onclick="AddFavorite()">
+		<i class="fas fa-plus"></i><span class="text">收藏本站</span>
+	</div>
 	<div id="info" class="floatMenuList noselect" align="center">
 		<div class="context">
 			<h2>关于本站</h2>
@@ -90,15 +102,5 @@
 			</p>
 		</div>
 		<i class="fas fa-info-circle"></i> <span class="text">关于本站</span>
-	</div>
-	<div id="qrcode" class="floatMenuList noselect" align="center">
-		<div class="context" style="text-align: center;">
-			<img alt="二维码" src="${pageContext.request.contextPath }/img/qrcode.jpg" width="200px" height="200px">
-		</div>
-		<i class="fas fa-qrcode"></i> <span class="text">二维码</span>
-	</div>
-	<div id="fx" class="floatMenuList noselect" align="center"
-		onclick="AddFavorite()">
-		<i class="fas fa-plus"></i><span class="text">收藏本站</span>
 	</div>
 </div>
