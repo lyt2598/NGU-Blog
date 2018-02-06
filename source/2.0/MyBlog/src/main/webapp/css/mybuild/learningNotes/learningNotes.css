@@ -136,6 +136,7 @@
 .lnContext #lnBottom {
 	border-bottom: 1px solid #4398ed;
 	padding: 10px 10px;
+	background: #f5f5f5;
 }
 
 .lnContext #lnBottom a {
@@ -148,6 +149,11 @@
 
 #lnValue table, #lnValue tr, #lnValue td {
 	border: 1px solid #000;
+}
+
+#lnReward{
+	padding: 20px;
+	padding-bottom: 30px;
 }
 
 #lnValue img {
@@ -178,6 +184,15 @@
 
 .lnTitleA {
 	max-width: 280px;
+	vertical-align: top;
+	display: inline-block;
+	overflow: hidden;
+	word-break: keep-all;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+
+.breadcrumb .title {
 	vertical-align: top;
 	display: inline-block;
 	overflow: hidden;
@@ -224,10 +239,19 @@
 	.lnContext #lnValue {
 		min-height: 50px;
 	}
+	.breadcrumb{
+		margin-bottom: 0px;
+	}
+	.breadcrumb .title {
+		max-width: 100px;
+	}
 }
 
 @media screen and (min-width: 768px) {
 	#lnTitle_Span {
 		font-size: 16px;
+	}
+	.breadcrumb .title {
+		max-width: 280px;
 	}
 }

@@ -13,6 +13,7 @@ import com.liaoyingtai.blog.entity.learningNotes.LearningNotes;
 import com.liaoyingtai.blog.entity.learningNotes.LearningNotesCustom;
 import com.liaoyingtai.blog.entity.userInfo.UserInfo;
 import com.liaoyingtai.blog.exception.base.BlogParameterException;
+import com.liaoyingtai.blog.exception.base.BlogSystemException;
 import com.liaoyingtai.blog.service.learningNotes.LearningNotesService;
 
 @Service("learningNotes")
@@ -36,10 +37,8 @@ public class LearningNotesServiceImpl implements LearningNotesService {
 			throw new BlogParameterException("参数错误：查询文章时用户ID不能为空");
 		}
 		// 当前登录用户不等于null并且当前登录用户的id等于需要查询的用户id
-		if (currentUser != null && currentUser.getMyBlog_UserInfo_id().equals(selectParam.getLearningNotes_PubUser())) {
-			// 任意设置一个非0的值即可查询所有文章
-			selectParam.setLearningNotes_Private(1);
-		} else {
+		if (currentUser == null
+				|| !currentUser.getMyBlog_UserInfo_id().equals(selectParam.getLearningNotes_PubUser())) {
 			selectParam.setLearningNotes_Private(0);
 		}
 		selectParam.setLimit(limit);
@@ -86,6 +85,9 @@ public class LearningNotesServiceImpl implements LearningNotesService {
 			throw new BlogParameterException("参数错误：查询文章时文章id不能为空");
 		}
 		LearningNotes learningNotes = learningNotesMapper.getLearningNotesById(lnId);
+		if (learningNotes == null) {
+			throw new BlogSystemException("你访问的文章不存在");
+		}
 		int viewCount = learningNotes.getLearningNotes_ViewCount() + 1;
 		learningNotes.setLearningNotes_ViewCount(viewCount);
 		return learningNotes;
@@ -114,6 +116,9 @@ public class LearningNotesServiceImpl implements LearningNotesService {
 		learningNotesCustom.setLearningNotes_PubUser(userId);
 		learningNotesCustom.setLimit(1);
 		LearningNotes learningNotes = learningNotesMapper.getTopLearningNotes(learningNotesCustom);
+		if (learningNotes == null) {
+			throw new BlogSystemException("您访问的文章不存在");
+		}
 		return learningNotes;
 	}
 
@@ -147,6 +152,21 @@ public class LearningNotesServiceImpl implements LearningNotesService {
 		learningNotesCustom.setMyBlog_LearningNotes_id(lnId);
 		learningNotesCustom.setLimit(limit);
 		List<LearningNotes> learningNotes = learningNotesMapper.getOtherLearningNotes(learningNotesCustom);
+		return learningNotes;
+	}
+
+	@Override
+	public LearningNotes getLearningNotes(UserInfo userInfo, int lnId) throws Exception {
+		LearningNotes learningNotes = getLearningNotesById(lnId);
+		if (learningNotes.getLearningNotes_Private() > 0) {
+			String uId = learningNotes.getLearningNotes_PubUser();
+			if (userInfo == null || "".equals(userInfo.getMyBlog_UserInfo_id())) {
+				throw new BlogSystemException("请登录后再执行该操作");
+			}
+			if (!userInfo.equals(uId)) {
+				throw new BlogSystemException("您没有权限访问该文章");
+			}
+		}
 		return learningNotes;
 	}
 

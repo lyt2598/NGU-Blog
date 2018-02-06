@@ -23,7 +23,7 @@
 					<li class="active">当前位置</li>
 					<li><a
 						href="${pageContext.request.contextPath }/index/${userId}">首页</a></li>
-					<li>学习笔记</li>
+					<li class="active">学习笔记</li>
 				</ol>
 				<!-- 正文内容 -->
 				<div class="lnBody">

@@ -50,7 +50,7 @@
 				and learningNotes_Title like concat('%',#{title},'%')
 			</if>
 			<!-- 0表示只查询公开的文章，任意非0的值表示查询所有 -->
-			<if test="learningNotes_Private==0">
+			<if test="learningNotes_Private &gt;= 0 and learningNotes_Private &lt;= 2">
 				and learningNotes_Private=#{learningNotes_Private}
 			</if>
 		</where>

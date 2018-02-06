@@ -9,7 +9,7 @@ import com.liaoyingtai.blog.entity.userInfo.UserInfo;
 public interface LearningNotesService {
 
 	/**
-	 * 查询学习笔记文章列表
+	 * 查询学习笔记文章列表, learningNotes_Private如果设置值是大于等于0小于等于2则表示通过条件查询，其他值均为查询所有
 	 * 
 	 * @param userId
 	 *            需要查询的用户id
@@ -90,5 +90,17 @@ public interface LearningNotesService {
 	 * @throws Exception
 	 */
 	public List<LearningNotes> getOtherLearningNotes(int lnId, int limit) throws Exception;
+
+	/**
+	 * 读取文章信息
+	 * 
+	 * @param userInfo
+	 *            只用传入当前登录用户Id，用来判断文章是私有状态时，文章发表用户和当前登录用户是否为同一人
+	 * @param lnId
+	 *            文章id
+	 * @return 文章信息
+	 * @throws Exception
+	 */
+	public LearningNotes getLearningNotes(UserInfo userInfo, int lnId) throws Exception;
 
 }
