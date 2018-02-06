@@ -116,9 +116,6 @@ public class LearningNotesServiceImpl implements LearningNotesService {
 		learningNotesCustom.setLearningNotes_PubUser(userId);
 		learningNotesCustom.setLimit(1);
 		LearningNotes learningNotes = learningNotesMapper.getTopLearningNotes(learningNotesCustom);
-		if (learningNotes == null) {
-			throw new BlogSystemException("您访问的文章不存在");
-		}
 		return learningNotes;
 	}
 

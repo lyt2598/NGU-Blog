@@ -24,7 +24,7 @@
 					<li><a
 						href="${pageContext.request.contextPath }/index/${userId}">首页</a></li>
 					<li><a
-						href="${pageContext.request.contextPath }/learningNotes/${userId}">学习笔记</a></li>
+						href="${pageContext.request.contextPath }/learningNotesList/${userId}">学习笔记</a></li>
 					<li class="active title">${lnInfo.learningNotes_Title }</li>
 				</ol>
 				<!-- 正文内容 -->
