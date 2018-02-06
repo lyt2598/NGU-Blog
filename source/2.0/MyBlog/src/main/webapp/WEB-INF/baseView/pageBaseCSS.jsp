@@ -21,6 +21,6 @@
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath }/css/referenced/bootstrap/bootstrap.min.css">
 <link rel="stylesheet"
-	href="${pageContext.request.contextPath }/css/mybuild/utils/loginBox.css">
+	href="${pageContext.request.contextPath }/css/mybuild/userInfo/loginBox.css">
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath }/css/mybuild/base.css">

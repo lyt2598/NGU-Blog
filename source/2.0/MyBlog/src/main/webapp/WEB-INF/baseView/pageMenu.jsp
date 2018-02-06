@@ -1,6 +1,7 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<nav class="navbar navbar-inverse navbar-static-top noselect" role="navigation">
+<nav class="navbar navbar-inverse navbar-static-top noselect"
+	role="navigation">
 	<div class="container">
 		<div class="navbar-header">
 			<button type="button" class="navbar-toggle" data-toggle="collapse"
@@ -9,7 +10,8 @@
 					class="icon-bar"></span> <span class="icon-bar"></span>
 			</button>
 			<a class="navbar-brand"
-				href="${pageContext.request.contextPath}/index/${userId}"><i class="fab fa-drupal"></i>NGU&nbsp;-&nbsp;个人主页</a>
+				href="${pageContext.request.contextPath}/index/${userId}"><i
+				class="fab fa-drupal"></i>NGU&nbsp;-&nbsp;个人主页</a>
 		</div>
 		<div class="collapse navbar-collapse" id="example-navbar-collapse">
 			<ul class="nav navbar-nav navbar-left" id="indexMenu">
@@ -55,26 +57,26 @@
 									style="font-size: 16px;">${sessionScope.currentUser.userInfo_Name}</strong></li>
 								<li class="divider"></li>
 								<li><a href="${pageContext.request.contextPath}/#"><span
-										class="dropdown-menu-left-logo"><i class="fa fa-cog"
-											aria-hidden="true"></i> </span>进入个人中心</a></li>
+										class="dropdown-menu-left-logo"><i
+											class="fas fa-user-secret"></i></span>进入个人中心</a></li>
 								<li class="divider"></li>
 								<li><a
 									href="${pageContext.request.contextPath}/pubLearningNotes"><span
-										class="dropdown-menu-left-logo"><i
-											class="fa fa-plus-square" aria-hidden="true"></i> </span>发表学习笔记</a></li>
+										class="dropdown-menu-left-logo"><i class="fas fa-edit"></i>
+									</span>发表学习笔记</a></li>
 								<li class="divider"></li>
 								<li><a
 									href="${pageContext.request.contextPath}/pubLearningNotes"><span
-										class="dropdown-menu-left-logo"><i
-											class="fa fa-plus-square" aria-hidden="true"></i> </span>管理学习笔记</a></li>
+										class="dropdown-menu-left-logo"><i class="fas fa-tasks"></i>
+									</span>管理学习笔记</a></li>
 								<li class="divider"></li>
 								<li><a href="${pageContext.request.contextPath}/#"><span
-										class="dropdown-menu-left-logo"><i
-											class="fa fa-plus-square" aria-hidden="true"></i> </span>进入管理后台</a></li>
+										class="dropdown-menu-left-logo"><i class="fas fa-cogs"></i>
+									</span>进入管理后台</a></li>
 								<li class="divider"></li>
 								<li onclick="loginOut()"><a href="javascript:void(0)"><span
 										class="dropdown-menu-left-logo"><i
-											class="fa fa-sign-out" aria-hidden="true"></i> </span>注销登陆</a></li>
+											class="fas fa-sign-out-alt"></i> </span>注销登陆</a></li>
 								<li class="divider"></li>
 							</ul></li>
 					</c:when>

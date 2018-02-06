@@ -28,7 +28,7 @@ i {
 }
 
 .modal-header-custom .search-text {
-	width: 85%;
+	width: 70%;
 	display: inline-block;
 	background: #f5f5f5;
 	padding: 10px 10px 10px 0px;
@@ -154,23 +154,28 @@ i {
 }
 
 .floatMenuList .context{
-		display:none;
-		background: #E5E5E5;
-		width:240px;
-		font-size: 12px;
-		position: absolute;
-		padding: 10px;
-		color: #000;
-		background: #eff1f4;
-		border-radius: 3px;
-		box-shadow: 0 2px 3px #ccc;
-		border: 1px solid #ccc;
-		text-align: left;
-	}
-	.floatMenuList .text{
-		display: none;
-		font-weight: bold;
-	}
+	display:none;
+	background: #E5E5E5;
+	width:240px;
+	font-size: 12px;
+	position: absolute;
+	padding: 10px;
+	color: #000;
+	background: #eff1f4;
+	border-radius: 3px;
+	box-shadow: 0 2px 3px #ccc;
+	border: 1px solid #ccc;
+	text-align: left;
+}
+	
+.floatMenuList .text{
+	display: none;
+	font-weight: bold;
+}
+
+#checkCodeImg{
+	border: 1px solid #999;
+}
 
 @keyframes spin {
   0%   { transform: rotate(0deg); }

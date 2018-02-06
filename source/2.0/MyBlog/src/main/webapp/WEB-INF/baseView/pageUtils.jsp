@@ -12,8 +12,6 @@
 					Login (登录)</h4>
 			</div>
 			<div class="modal-body">
-				<script
-					src="${pageContext.request.contextPath }/js/mybuild/utils/login.js"></script>
 				<div id="loginMessage"></div>
 				<div id="loginBody" align="center">
 					<div class="input-group col-sm-8" style="padding-bottom: 20px;">
@@ -52,7 +50,8 @@
 </div>
 <!-- 搜索模态框 -->
 <div class="modal fade" id="searchModal" tabindex="-1" role="dialog"
-	aria-labelledby="myModalLabel" aria-hidden="true">
+	aria-labelledby="myModalLabel" data-backdrop="static"
+	aria-hidden="true">
 	<div class="modal-dialog">
 		<div class="modal-content">
 			<div class="modal-header-custom">
@@ -66,8 +65,8 @@
 			</div>
 			<div class="modal-body modal-body-custom">
 				<div class="no-search-result">
-					<i class="fas fa-frown fa-5x"></i>
-					<p>没有找到符合要求的内容</p>
+					<i class="fab fa-linux fa-5x"></i>
+					<p>请输入需要查找的内容</p>
 				</div>
 			</div>
 		</div>

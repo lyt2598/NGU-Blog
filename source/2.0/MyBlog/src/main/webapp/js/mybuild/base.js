@@ -29,6 +29,19 @@ function AddFavorite(){
 		}
 	}
 }
+// 清除登陆模态框中的内容
+function removeLoginModal(){
+	$("#loginModal #login_username").val("");
+	$("#loginModal #login_password").val("");
+	$("#loginModal #login_checkcode").val("");
+	$("#loginModal #loginMessage").html("");
+	$("#loginModal #loginMessage").removeAttr("class");
+}
+// 清楚搜索模态框中的内容
+function removeSearchModal(){
+	$("#searchModal #searchData").val("");
+	$("#loginModal .modal-body").html('<div class="no-search-result"><i class="fab fa-linux fa-5x"></i><p>请输入需要查找的内容</p></div>');
+}
 $(function() {
 	$(window).scroll(function() {
 		var scrollTop = $(this).scrollTop();
@@ -41,15 +54,11 @@ $(function() {
 	$("[data-toggle='tooltip']").tooltip({html : true });
 	// 登陆窗口被隐藏时动作
 	$('#loginModal').on('hide.bs.modal', function() {
-		$("#loginModal #login_username").val("");
-		$("#loginModal #login_password").val("");
-		$("#loginModal #login_checkcode").val("");
-		$("#loginModal #loginMessage").html("");
-		$("#loginModal #loginMessage").removeAttr("class");
+		removeLoginModal();
 	});
+	// 搜索窗口被隐藏时动作
 	$('#searchModal').on('hide.bs.modal', function() {
-		$("#searchModal #searchData").val("");
-		$("#loginModal .modal-body").html('<div class="no-search-result"><i class="fa fa-frown-o fa-5x"></i><p>没有找到符合要求的内容</p></div>');
+		removeSearchModal();
 	});
 	// 当点击跳转链接后，回到页面顶部位置
 	$("#goTop").click(function() {

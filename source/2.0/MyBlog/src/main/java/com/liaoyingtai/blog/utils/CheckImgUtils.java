@@ -12,8 +12,9 @@ public class CheckImgUtils {
 	private String strValues = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";// 验证码上要显示的内容
 	private int imgWidth = 200;// 图片宽度
 	private int imgHeight = 80;// 图片高度
-	private Color[] strColors = { Color.red, Color.blue, Color.yellow, Color.green };// 字体颜色
-	private Color bgColor = Color.PINK;
+	private Color[] strColors = { Color.red, Color.blue, Color.yellow, Color.green, Color.black, Color.cyan,
+			Color.lightGray, Color.orange };// 字体颜色
+	private Color bgColor = Color.WHITE;
 	private Random random = new Random();// 用来生成随机数对象
 	private String resultStr;
 
@@ -54,9 +55,12 @@ public class CheckImgUtils {
 			graphics2d.setFont(new Font("Times New Roman", Font.ITALIC, this.imgHeight));
 			String str = String.valueOf(getStrValue());
 			sBuffer.append(str);
+			graphics2d.setColor(this.strColors[random.nextInt(this.strColors.length)]);
+			graphics2d.drawLine(0, random.nextInt(this.imgHeight), this.imgWidth, random.nextInt(this.imgHeight));
 			graphics2d.setColor(getStrColor());
-			graphics2d.drawString(str, 16 * i + random.nextInt(7), this.imgHeight - random.nextInt(6));
-			graphics2d.setColor(Color.black);
+			graphics2d.drawString(str, this.imgWidth / this.strLength * (i - 1) + random.nextInt(7),
+					this.imgHeight - random.nextInt(6));
+			graphics2d.setColor(this.strColors[random.nextInt(this.strColors.length)]);
 			graphics2d.drawLine(0, random.nextInt(this.imgHeight), this.imgWidth, random.nextInt(this.imgHeight));
 		}
 		this.resultStr = sBuffer.toString();
