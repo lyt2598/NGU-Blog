@@ -18,3 +18,8 @@ Date.prototype.format = function(format) {
 					: ("00" + o[k]).substr(("" + o[k]).length));
 	return format;
 }
+
+function dateFormat(date,format){
+	date=new Date(date).format(format);
+	return date;
+}

@@ -11,10 +11,6 @@
 	href="${pageContext.request.contextPath }/css/mybuild/learningNotes/learningNotes.css">
 <script
 	src="${pageContext.request.contextPath }/js/mybuild/utils/dateFormat.js"></script>
-<script
-	src="${pageContext.request.contextPath }/js/mybuild/utils/changyan.js"></script>
-<script type="text/javascript"
-	src="https://assets.changyan.sohu.com/upload/plugins/plugins.count.js"></script>
 </head>
 <body>
 	<%@ include file="../../baseView/pageMenu.jsp"%>
@@ -101,38 +97,36 @@
 									data-toggle="tooltip" title="邮箱"><i class="fa fa-envelope"
 									aria-hidden="true"></i></a>
 							</div>
-							<a href="javascript:void(0);" data-toggle="tooltip" title="浏览次数"><i
+							<span data-toggle="tooltip" title="浏览次数"><i
 								class="fa fa-eye" aria-hidden="true"></i><span
-								id="menu-viewCount" class="menu-title">${lnInfo.learningNotes_ViewCount }次</span></a>
-							<a href="javascript:void(0);" data-toggle="tooltip" title="转发次数"><i
+								id="menu-viewCount" class="menu-title">${lnInfo.learningNotes_ViewCount }次</span></span>
+							<span data-toggle="tooltip" title="转发次数"><i
 								class="fas fa-code-branch"></i><span id="menu-relayCount"
-								class="menu-title">${lnInfo.learningNotes_RelayCount }次</span></a> <a
-								href="javascript:void(0);" data-toggle="tooltip" title="评论次数"><i
+								class="menu-title">${lnInfo.learningNotes_RelayCount }次</span></span> <span
+								data-toggle="tooltip" title="评论次数"><i
 								class="fa fa-comments" aria-hidden="true"></i><span
 								id="menu-commentCount" class="menu-title"> <span
-									href="#SOHUCS" id="changyan_count_unit">0</span>次
-							</span></a> <a href="javascript:void(0);" data-toggle="tooltip" title="发表时间"><i
+									href="#SOHUCS" id="changyan_count_unit" class="no-span">0</span>次<script
+										type="text/javascript"
+										src="https://assets.changyan.sohu.com/upload/plugins/plugins.count.js"></script>
+							</span></span><span data-toggle="tooltip" title="发表时间"><i
 								class="fas fa-clock"></i><span id="menu-pubTime"
-								class="menu-title">${lnInfo.learningNotes_PubDate }</span></a>
+								class="menu-title">${lnInfo.learningNotes_PubDate }</span></span>
 							<c:if test="${lnInfo.learningNotes_ModDate !=null }">
-								<a href="javascript:void(0);" data-toggle="tooltip"
-									title="最后修改时间"><i class="fas fa-clock"></i><span
-									id="menu-modTime" class="menu-title">${lnInfo.learningNotes_ModDate }</span></a>
+								<span data-toggle="tooltip" title="最后修改时间"><i
+									class="fas fa-clock"></i><span id="menu-modTime"
+									class="menu-title">${lnInfo.learningNotes_ModDate }</span></span>
 							</c:if>
 						</div>
 					</div>
 					<div id="lnValue">${lnInfo.learningNotes_Context }</div>
 					<div id="lnTags">${lnInfo.learningNotes_Tags }</div>
-					<div id="lnReward" align="center">
-						<div id="cyReward" role="cylabs" data-use="reward"></div>
-						<!-- 代码2：用来读取评论框配置，此代码需放置在代码1之后。 -->
-						<!-- 如果当前页面有评论框，代码2请勿放置在评论框代码之前。 -->
-						<!-- 如果页面同时使用多个实验室项目，以下代码只需要引入一次，只配置上面的div标签即可 -->
-						<script type="text/javascript" charset="utf-8"
-							src="https://changyan.itc.cn/js/lib/jquery.js"></script>
+					<!-- <div id="lnReward" align="center">
+						<div id="cyReward" class="ln-hidden" role="cylabs"
+							data-use="reward"></div>
 						<script type="text/javascript" charset="utf-8"
 							src="https://changyan.sohu.com/js/changyan.labs.https.js?appid=cytqfnp8B"></script>
-					</div>
+					</div> -->
 					<div id="lnBottom">
 						<c:if test="${topLNInfo!=null}">
 							<b>&nbsp;上一篇：<a
@@ -148,6 +142,58 @@
 					<div id="message">
 						<div id="SOHUCS"
 							sid="/learningNotes/${userId}/${lnInfo.myBlog_LearningNotes_id }"></div>
+						<script type="text/javascript">
+							(function() {
+								var appid = 'cytqfnp8B';
+								var conf = 'prod_65ef75d90f5c3635d4d6befda898c451';
+								var width = window.innerWidth
+										|| document.documentElement.clientWidth;
+								if (width < 960) {
+									window.document
+											.write('<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id='
+													+ appid
+													+ '&conf='
+													+ conf
+													+ '"><\/script>');
+								} else {
+									var loadJs = function(d, a) {
+										var c = document
+												.getElementsByTagName("head")[0]
+												|| document.head
+												|| document.documentElement;
+										var b = document
+												.createElement("script");
+										b.setAttribute("type",
+												"text/javascript");
+										b.setAttribute("charset", "UTF-8");
+										b.setAttribute("src", d);
+										if (typeof a === "function") {
+											if (window.attachEvent) {
+												b.onreadystatechange = function() {
+													var e = b.readyState;
+													if (e === "loaded"
+															|| e === "complete") {
+														b.onreadystatechange = null;
+														a()
+													}
+												}
+											} else {
+												b.onload = a
+											}
+										}
+										c.appendChild(b)
+									};
+									loadJs(
+											"https://changyan.sohu.com/upload/changyan.js",
+											function() {
+												window.changyan.api.config({
+													appid : appid,
+													conf : conf
+												})
+											});
+								}
+							})();
+						</script>
 					</div>
 				</div>
 			</div>
@@ -155,6 +201,19 @@
 		</div>
 		<%@ include file="../../baseView/pageFooter.jsp"%>
 	</div>
-	<%@ include file="../../baseView/pageUtils.jsp"%>
+	<%@ include file="../../baseView/pageUtils.jsp"%><script
+		type="text/javascript">
+		$(document).ready(function() {
+			var format = "yyyy年MM月dd日";
+			$("#menu-pubTime").html(function(index, html) {
+				var date = dateFormat(html, format);
+				return date;
+			});
+			$("#menu-modTime").html(function(index, html) {
+				var date = dateFormat(html, format);
+				return date;
+			});
+		});
+	</script>
 </body>
 </html>

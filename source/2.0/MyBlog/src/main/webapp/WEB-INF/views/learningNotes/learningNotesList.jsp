@@ -86,13 +86,13 @@
 														</c:when>
 													</c:choose>
 												</div></td>
-											<td class="ln-hidden"><i class="fas fa-clock"></i>${ln.learningNotes_PubDate }</td>
+											<td class="ln-hidden"><i class="fas fa-clock"></i><span
+												class="pubDate">${ln.learningNotes_PubDate }</span></td>
 											<td class="ln-hidden"><i class="fa fa-eye i-default"
 												aria-hidden="true"></i>${ln.learningNotes_ViewCount }</td>
 											<td class="ln-hidden"><i class="fas fa-comment-alt"></i><span
 												id="sourceId::/learningNotes/${ln.learningNotes_PubUser }/${ln.myBlog_LearningNotes_id }"
-												class="cy_cmt_count"></span> <script id="cy_cmt_num"
-													src="https://changyan.sohu.com/upload/plugins/plugins.list.count.js?clientId=cytqfnp8B"></script></td>
+												class="cy_cmt_count"></span></td>
 										</tr>
 									</c:forEach>
 								</c:when>
@@ -104,6 +104,8 @@
 							</c:choose>
 						</tbody>
 					</table>
+					<script id="cy_cmt_num"
+						src="https://changyan.sohu.com/upload/plugins/plugins.list.count.js?clientId=cytqfnp8B"></script>
 					<div id="paging" align="center">
 						<ul class="pagination">
 							<c:choose>
@@ -158,5 +160,13 @@
 		<%@ include file="../../baseView/pageFooter.jsp"%>
 	</div>
 	<%@ include file="../../baseView/pageUtils.jsp"%>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$(".pubDate").html(function(index, html) {
+				var date = dateFormat(html, "yyyy年MM月dd日");
+				return date;
+			});
+		});
+	</script>
 </body>
 </html>

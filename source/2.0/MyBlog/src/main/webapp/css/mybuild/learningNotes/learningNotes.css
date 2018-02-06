@@ -115,10 +115,14 @@
 	word-break: normal;
 }
 
-.lnContext #lnTitle .menu a {
+.lnContext #lnTitle .menu a, .lnContext #lnTitle .menu span {
 	color: #999;
-	padding-right: 15px;
+	padding-right: 5px;
 	text-decoration: none;
+}
+
+.lnContext #lnTitle .menu .no-span {
+	padding-right: 0px;
 }
 
 .lnContext #lnTitle .menu .menu-title {
@@ -151,7 +155,7 @@
 	border: 1px solid #000;
 }
 
-#lnReward{
+#lnReward {
 	padding: 20px;
 	padding-bottom: 30px;
 }
@@ -239,11 +243,11 @@
 	.lnContext #lnValue {
 		min-height: 50px;
 	}
-	.breadcrumb{
+	.breadcrumb {
 		margin-bottom: 0px;
 	}
 	.breadcrumb .title {
-		max-width: 100px;
+		max-width: 70px;
 	}
 }
 
