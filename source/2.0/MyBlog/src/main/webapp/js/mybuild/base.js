@@ -40,7 +40,7 @@ function removeLoginModal(){
 // 清楚搜索模态框中的内容
 function removeSearchModal(){
 	$("#searchModal #searchData").val("");
-	$("#loginModal .modal-body").html('<div class="no-search-result"><i class="fab fa-linux fa-5x"></i><p>请输入需要查找的内容</p></div>');
+	$("#searchModal .modal-body").html('<div class="no-search-result"><i class="fab fa-linux fa-5x"></i><p>请输入需要查找的内容</p></div>');
 }
 $(function() {
 	$(window).scroll(function() {

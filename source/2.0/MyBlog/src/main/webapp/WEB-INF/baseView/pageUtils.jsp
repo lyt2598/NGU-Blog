@@ -1,6 +1,6 @@
 <%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
 <!-- 登陆模态框 -->
-<div class="modal fade" id="loginModal" tabindex="-1" role="dialog"
+<div class="modal fade" id="loginModal" tabindex="0" role="dialog"
 	aria-labelledby="myModalLabel" data-backdrop="static"
 	aria-hidden="true">
 	<div class="modal-dialog">
@@ -49,7 +49,7 @@
 	<!-- /.modal -->
 </div>
 <!-- 搜索模态框 -->
-<div class="modal fade" id="searchModal" tabindex="-1" role="dialog"
+<div class="modal fade" id="searchModal" tabindex="1" role="dialog"
 	aria-labelledby="myModalLabel" data-backdrop="static"
 	aria-hidden="true">
 	<div class="modal-dialog">
