@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.liaoyingtai.blog.annotation.userInfo.CheckUserLogin;
 import com.liaoyingtai.blog.entity.learningNotes.LearningNotes;
 import com.liaoyingtai.blog.entity.learningNotes.LearningNotesCustom;
 import com.liaoyingtai.blog.entity.userInfo.UserInfo;
@@ -55,6 +56,15 @@ public class LearningNotesController extends MyExceptionResolverResultPage {
 		List<LearningNotes> list = learningNotesService.getOtherLearningNotes(lnId, 10);
 		model.addAttribute("otherLNInfo", list);
 		return "learningNotes/learningNotes";
+	}
+
+	@CheckUserLogin
+	@RequestMapping(value = "pubLearningNotes", method = { RequestMethod.GET })
+	public String pubLearningNotes(Model model, HttpSession session,Integer lnId) throws Exception {
+		// 将当前用户的ID设置到model中，拦截器要通过id获取头部菜单
+		UserInfo userInfo = (UserInfo) session.getAttribute("currentUser");
+		model.addAttribute("userId", userInfo.getMyBlog_UserInfo_id());
+		return "learningNotes/pubLearningNotes";
 	}
 
 }

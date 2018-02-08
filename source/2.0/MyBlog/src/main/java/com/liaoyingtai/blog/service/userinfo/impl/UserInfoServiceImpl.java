@@ -11,7 +11,7 @@ import com.liaoyingtai.blog.dao.mapper.userInfo.UserInfoMapper;
 import com.liaoyingtai.blog.entity.userInfo.UserInfo;
 import com.liaoyingtai.blog.entity.userInfo.UserJurisdiction;
 import com.liaoyingtai.blog.exception.base.BlogParameterException;
-import com.liaoyingtai.blog.exception.userInfo.UserLoginException;
+import com.liaoyingtai.blog.exception.userInfo.UserNotLoginException;
 import com.liaoyingtai.blog.exception.userInfo.UserRegisteredException;
 import com.liaoyingtai.blog.service.about.AboutMeService;
 import com.liaoyingtai.blog.service.headMenu.HeadMenuService;
@@ -92,7 +92,7 @@ public class UserInfoServiceImpl implements UserInfoService {
 		UserInfo userInfo = userInfoMapper.getUserInfoByAccount(userAccount);
 		password = new Md5Hash(password, "lyt2598").toString();
 		if (userInfo == null || !password.equals(userInfo.getUserInfo_Password())) {
-			throw new UserLoginException("用户账号或密码输入不正确");
+			throw new UserNotLoginException("用户账号或密码输入不正确");
 		}
 		return userInfo;
 	}
