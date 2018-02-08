@@ -11,6 +11,11 @@
 	src="${pageContext.request.contextPath }/js/referenced/jquery/jquery-3.2.1.min.js"></script>
 <script
 	src="${pageContext.request.contextPath }/js/mybuild/userInfo/login.js"></script>
+<script type="text/javascript">
+	var basePath = '${pageContext.request.contextPath}';
+	var url = getUrlParms("url");
+	console.log(url);
+</script>
 </head>
 <body>
 	<div class="login-form">
@@ -19,31 +24,34 @@
 				src="${pageContext.request.contextPath }/img/user/head/default.png"
 				alt="" width="64px" height="64px" /></span>
 		</div>
-		<h1>登录 - Nerver Give Up</h1>
+		<a href="${pageContex.request.contextPath }"><h1>登录 - Nerver
+				Give Up</h1></a>
 		<div id="loginMessage" align="center"></div>
 		<div class="login-top">
 			<div class="login-ic">
 				<i title="用户名"></i> <input type="text" placeholder="请输入用户名"
-					id="login_username" />
+					id="login_username" class="login-username" />
 				<div class="clear"></div>
 			</div>
 			<div class="login-ic">
 				<i class="icon" title="密码"></i> <input type="password"
-					placeholder="请输入密码" id="login_password" />
+					placeholder="请输入密码" class="login-password" id="login_password"
+					onfocus="checkUserName()" />
 				<div class="clear"></div>
 			</div>
 			<div class="login-ic">
 				<i class="checkcode" title="点击此处获取验证码"></i> <input type="text"
-					placeholder="请输入验证码" id="login_checkcode" />
+					placeholder="请输入验证码" class="login-checkcode" id="login_checkcode"
+					onfocus="checkPassWord()" onblur="checkCheckCode()" />
 				<div class="clear"></div>
 			</div>
 			<div class="login-ic">
-				<img src="#" alt="点击此处读取验证码" height="130px" width="100%"
-					title="看不清？点击即可更换"
+				<img src="${pageContext.request.contextPath }/img/checkCode"
+					alt="点击此处读取验证码" height="130px" width="100%" title="看不清？点击即可更换"
 					onclick="this.src='${pageContext.request.contextPath }/img/checkCode?'+ new Date().getTime()">
 			</div>
 			<div class="log-bwn">
-				<input type="submit" value="立即登录" onclick="submitLogin()">
+				<input type="submit" value="立即登录" onclick="submitLoginPage()">
 			</div>
 		</div>
 		<p class="copy">

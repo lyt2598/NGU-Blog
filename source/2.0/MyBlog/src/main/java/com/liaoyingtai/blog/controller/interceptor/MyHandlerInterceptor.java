@@ -33,7 +33,8 @@ public class MyHandlerInterceptor extends MyExceptionResolverResultPage implemen
 		if (handler instanceof HandlerMethod) {
 			boolean result = CheckUserLoginUtils.checkUserLogin(request.getSession(), handler);
 			if (!result) {
-				response.sendRedirect(LOGIN_URL);
+				String url = request.getRequestURL().toString();
+				response.sendRedirect(LOGIN_URL + "?url=" + url);
 				return false;
 			}
 		}

@@ -33,7 +33,50 @@ function submitLogin() {
 		}
 	});
 }
-
+// 提交登录页面
+function submitLoginPage() {
+	if (checkUserName() == false) {
+		return false;
+	}
+	if (checkPassWord() == false) {
+		return false;
+	}
+	if (checkCheckCode() == false) {
+		return false;
+	}
+	var userAccount = $(".login-username").val();
+	var password = $(".login-password").val();
+	var checkcode = $(".login-checkcode").val();
+	$.ajax({
+		url : basePath + "/ajax/login",
+		method : "POST",
+		data : "userInfo_Account=" + userAccount + "&userInfo_Password="
+				+ password + "&checkCode=" + checkcode,
+		dataType : "json",
+		success : function(data) {
+			var obj = eval(data);
+			if (obj.status == 1) {
+				var url = getUrlParms("url");
+				location.href = url;
+			} else {
+				setErrorMessage(obj.message);
+			}
+		},
+		error : function(e) {
+			setErrorMessage("登录出错啦！请刷新页面重试");
+			console.log(e);
+		}
+	});
+}
+// 获取URL参数
+function getUrlParms(name) {
+	var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+	var r = window.location.search.substr(1).match(reg);
+	if (r != null)
+		return unescape(r[2]);
+	return null;
+}
+var id = getUrlParms("id");
 // 检查用户账号
 function checkUserName(username) {
 	if (username == null || username == undefined)
