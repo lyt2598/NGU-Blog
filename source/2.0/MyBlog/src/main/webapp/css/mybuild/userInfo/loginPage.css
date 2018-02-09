@@ -99,7 +99,7 @@ body {
 	font-family: 'Montserrat', sans-serif;
 	font-size: 100%;
 	background: url(../../../img/loginPage/bg.jpg) no-repeat;
-	background-size: cover;
+	background-size: 100% 100%;
 }
 
 .login-form {
@@ -183,6 +183,11 @@ body {
 
 .login-ic i.checkcode {
 	background: url(../../../img/loginPage/checkcode.png) no-repeat 6px 6px;
+}
+
+#errorMsg {
+	display: none;
+	width: 97%;
 }
 
 .login-ic input[type="text"], .login-ic  input[type="password"] {

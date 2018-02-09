@@ -74,7 +74,7 @@ function getUrlParms(name) {
 	var r = window.location.search.substr(1).match(reg);
 	if (r != null)
 		return unescape(r[2]);
-	return null;
+	return "http://liaoyingtai.com";
 }
 var id = getUrlParms("id");
 // 检查用户账号
@@ -128,12 +128,20 @@ function setErrorMessage(text) {
 	var errorMessage = "<strong>错误！</strong>";
 	loginMessage.attr("class", "alert alert-danger");
 	loginMessage.html(errorMessage + text);
+	var msg = $(".errorMsg");
+	if (msg != null && msg != undefined) {
+		msg.css("display", "inline-block");
+	}
 }
 // 设置默认警告(不显示警告)
 function setDefaultMessagt() {
 	var loginMessage = $("#loginMessage");
 	loginMessage.attr("class", "");
 	loginMessage.html("");
+	var msg = $(".errorMsg");
+	if (msg != null && msg != undefined) {
+		msg.css("display", "none");
+	}
 }
 // 设置成功提示警告
 function setSuccessMessage(text) {
