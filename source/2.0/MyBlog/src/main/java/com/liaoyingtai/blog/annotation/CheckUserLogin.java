@@ -1,4 +1,4 @@
-package com.liaoyingtai.blog.annotation.userInfo;
+package com.liaoyingtai.blog.annotation;
 
 import static java.lang.annotation.RetentionPolicy.RUNTIME;
 

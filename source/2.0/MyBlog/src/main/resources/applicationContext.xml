@@ -33,6 +33,7 @@
 	<mvc:resources location="/img/" mapping="/img/**" />
 	<mvc:resources location="/html/" mapping="/html/**" />
 	<mvc:resources location="/editor/" mapping="/editor/**" />
+	<mvc:resources location="/layui/" mapping="/layui/**" />
 	<!-- 自定义拦截器 -->
 	<mvc:interceptors>
 		<mvc:interceptor>
@@ -44,6 +45,7 @@
 			<mvc:exclude-mapping path="/img/**" />
 			<mvc:exclude-mapping path="/html/**" />
 			<mvc:exclude-mapping path="/editor/**" />
+			<mvc:exclude-mapping path="/layui/**" />
 			<!-- 发表东西时不进行拦截 -->
 			<mvc:exclude-mapping path="/ajax/**" />
 			<mvc:exclude-mapping path="/post/**" />

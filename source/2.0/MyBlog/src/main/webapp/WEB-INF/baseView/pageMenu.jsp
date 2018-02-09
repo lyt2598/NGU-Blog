@@ -56,7 +56,8 @@
 								<li class="dropdown-header">当前用户：<strong
 									style="font-size: 16px;">${sessionScope.currentUser.userInfo_Name}</strong></li>
 								<li class="divider"></li>
-								<li><a href="${pageContext.request.contextPath}/#"><span
+								<li><a
+									href="${pageContext.request.contextPath}/backStage/index"><span
 										class="dropdown-menu-left-logo"><i
 											class="fas fa-user-secret"></i></span>进入个人中心</a></li>
 								<li class="divider"></li>

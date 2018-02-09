@@ -11,7 +11,8 @@ import org.springframework.web.method.HandlerMethod;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.liaoyingtai.blog.annotation.userInfo.CheckUserLoginUtils;
+import com.liaoyingtai.blog.annotation.CheckUserLoginUtils;
+import com.liaoyingtai.blog.annotation.NotLoadHeadMenuUtils;
 import com.liaoyingtai.blog.entity.headMenu.HeadMenuCustom;
 import com.liaoyingtai.blog.entity.userInfo.UserInfo;
 import com.liaoyingtai.blog.exception.base.BlogSystemException;
@@ -34,7 +35,7 @@ public class MyHandlerInterceptor extends MyExceptionResolverResultPage implemen
 			boolean result = CheckUserLoginUtils.checkUserLogin(request.getSession(), handler);
 			if (!result) {
 				String url = request.getRequestURL().toString();
-				response.sendRedirect(LOGIN_URL + "?url=" + url);
+				response.sendRedirect(request.getServletContext().getContextPath() + "/" + LOGIN_URL + "?url=" + url);
 				return false;
 			}
 		}
@@ -43,20 +44,22 @@ public class MyHandlerInterceptor extends MyExceptionResolverResultPage implemen
 
 	public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler,
 			ModelAndView modelAndView) throws Exception {
-		// 加载头部菜单信息
-		String uid = "";
-		if (modelAndView == null) {
-			throw new BlogSystemException("没有传入用户ID，无法查询到头部菜单");
+		if (!NotLoadHeadMenuUtils.isNotLoadHeadMenu(handler)) {
+			// 加载头部菜单信息
+			String uid = "";
+			if (modelAndView == null) {
+				throw new BlogSystemException("没有传入用户ID，无法查询到头部菜单");
+			}
+			Map<String, Object> modelMap = modelAndView.getModel();
+			uid = (String) modelMap.get("userId");
+			if (uid == null || "".equals(uid)) {
+				throw new BlogSystemException("没有传入用户ID，无法查询到头部菜单");
+			}
+			List<HeadMenuCustom> list = headMenuService.getIndexHeadMenu(uid);
+			modelAndView.addObject("headMenuList", list);
+			UserInfo userInfo = userInfoService.getPortionUserInfoById(uid);
+			modelAndView.addObject("lookUserInfo", userInfo);
 		}
-		Map<String, Object> modelMap = modelAndView.getModel();
-		uid = (String) modelMap.get("userId");
-		if (uid == null || "".equals(uid)) {
-			throw new BlogSystemException("没有传入用户ID，无法查询到头部菜单");
-		}
-		List<HeadMenuCustom> list = headMenuService.getIndexHeadMenu(uid);
-		modelAndView.addObject("headMenuList", list);
-		UserInfo userInfo = userInfoService.getPortionUserInfoById(uid);
-		modelAndView.addObject("lookUserInfo", userInfo);
 	}
 
 	public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex)

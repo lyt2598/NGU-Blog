@@ -1,0 +1,12 @@
+@CHARSET "UTF-8";
+
+iframe{
+	border: 0px;
+}
+
+.layui-logo a {
+	text-align: center;
+	color: #009688;
+	font-size: 16px;
+	line-height: 60px;
+}

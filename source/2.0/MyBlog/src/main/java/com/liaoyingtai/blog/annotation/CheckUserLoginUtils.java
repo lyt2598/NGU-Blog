@@ -1,4 +1,4 @@
-package com.liaoyingtai.blog.annotation.userInfo;
+package com.liaoyingtai.blog.annotation;
 
 import java.lang.reflect.Method;
 
