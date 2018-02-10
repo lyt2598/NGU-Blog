@@ -8,12 +8,12 @@
 
 - 演示地址：[点击进入演示网址](http://www.liaoyingtai.com "http://www.liaoyingtai.com")
 
-本博客系统采用java语言进行编写，主体框架Spring、SpringMVC、MyBatis。
+本博客系统采用java语言进行编写
 编写目的：用于个人首页的现实以及记录一些在开发过程中遇到的问题
 
 # 编码环境
 
-- 系统：windows7 64bit
+- 系统：windows10 64bit
 
 - jdk：1.7.0_45
 
@@ -36,7 +36,6 @@
 > 后端技术
 
 - 基础框架：Spring & SpringMVC & MyBatis
-- 安全框架：Shiro
 - 表单校验框架：Hibernate-Validator
 - 数据库连接池：DBCP
 - 日志：LOG4J & SLF4J
@@ -44,7 +43,7 @@
 
 > 前端技术
 
-- Bootstrap & js & Jquery
+- Bootstrap & js & Jquery & layui
 
 > 数据库
 
@@ -67,5 +66,5 @@
 # 贡献者
 
 > Lyt2598:
-- 邮箱：lyt2598@qq.com
+- 邮箱：lyt2598@aliyun.com
 - 主页：[http://www.liaoyingtai.com](http://www.liaoyingtai.com "http://www.liaoyingtai.com")
