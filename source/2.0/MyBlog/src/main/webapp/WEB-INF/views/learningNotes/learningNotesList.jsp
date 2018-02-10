@@ -63,9 +63,8 @@
 										<tr>
 											<td class="textAlign ln-hidden"><c:choose>
 													<c:when test="${ln.learningNotes_Stick==1 }">
-														<tr>
-															<a class="a-i" title="置頂文章"><i
-																class="fas fa-thumbtack"></i></a>
+														<a class="a-i" title="置頂文章"><i
+															class="fas fa-thumbtack"></i></a>
 													</c:when>
 													<c:otherwise>
 														<i class="fa fa-list-alt" aria-hidden="true"></i>

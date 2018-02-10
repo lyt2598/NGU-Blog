@@ -64,7 +64,9 @@
 					<li class="layui-nav-item"><a href="javascript:;">学习笔记</a>
 						<dl class="layui-nav-child">
 							<dd>
-								<a href="${pageContext.request.contextPath }/pubLearningNotes">发表笔记</a>
+								<a
+									href="${pageContext.request.contextPath }/backStage/pubLearningNotes"
+									target="myIFrame">发表笔记</a>
 							</dd>
 							<dd>
 								<a
@@ -80,10 +82,9 @@
 
 		<div class="layui-body">
 			<!-- 内容主体区域 -->
-			<div style="padding: 15px;">
+			<div style="margin:20px;">
 				<iframe id="myIFrame" class="myIFrame" name="myIFrame" width="100%"
-					height="100%" src="#" onload="changeFrameHeight('myIFrame')"
-					scrolling="no"></iframe>
+					src="#" onload="changeFrameHeight('myIFrame')" scrolling="no"></iframe>
 			</div>
 		</div>
 
@@ -104,7 +105,6 @@
 		var basePath = '${pageContext.request.contextPath}';
 		layui.use('element', function() {
 			var element = layui.element;
-
 		});
 	</script>
 </body>

@@ -64,8 +64,9 @@
 	<script type="text/javascript">
 		$(document).ready(function(e) {
 			var ue = UE.getEditor('myEditor');
+			getLNType(basePath);
 			$('#publishLN').click(function() {
-				pubLearningNotes(ue, url);
+				pubLearningNotes(ue, basePath);
 			});
 		})
 	</script>

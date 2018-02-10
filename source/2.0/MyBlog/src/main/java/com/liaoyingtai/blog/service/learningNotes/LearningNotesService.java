@@ -9,14 +9,17 @@ import com.liaoyingtai.blog.entity.userInfo.UserInfo;
 public interface LearningNotesService {
 
 	/**
-	 * 查询学习笔记文章列表, learningNotes_Private如果设置值是大于等于0小于等于2则表示通过条件查询，其他值均为查询所有
+	 * 查询学习笔记文章列表
 	 * 
 	 * @param userId
 	 *            需要查询的用户id
 	 * @param currentUser
 	 *            当前登录用户信息,如果为空则查询该用户非私有的文章
 	 * @param selectParam
-	 *            查询参数
+	 *            查询参数,
+	 *            learningNotes_Private如果设置值是大于等于0小于等于2则表示通过条件查询，其他值均为查询所有,
+	 *            如果currentUser为空时，自动将learningNotes_Private设置为0
+	 *            如果currentUser的用户id等于userId时，自动将learningNotes_Private设置为99
 	 * @return
 	 * @throws Exception
 	 */

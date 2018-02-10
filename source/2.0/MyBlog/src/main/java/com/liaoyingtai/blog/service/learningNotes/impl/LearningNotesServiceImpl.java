@@ -36,10 +36,11 @@ public class LearningNotesServiceImpl implements LearningNotesService {
 		if (userId == null || "".equals(userId)) {
 			throw new BlogParameterException("参数错误：查询文章时用户ID不能为空");
 		}
-		// 当前登录用户不等于null并且当前登录用户的id等于需要查询的用户id
-		if (currentUser == null
-				|| !currentUser.getMyBlog_UserInfo_id().equals(selectParam.getLearningNotes_PubUser())) {
-			selectParam.setLearningNotes_Private(0);
+		if (selectParam.getLearningNotes_Private() == 0) {
+			// 当前登录用户不等于null并且当前登录用户的id等于需要查询的用户id
+			if (currentUser != null && currentUser.getMyBlog_UserInfo_id().equals(userId)) {
+				selectParam.setLearningNotes_Private(99);
+			}
 		}
 		selectParam.setLimit(limit);
 		selectParam.setPage(page);

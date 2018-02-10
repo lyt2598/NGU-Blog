@@ -16,14 +16,14 @@ import com.liaoyingtai.blog.exception.base.MyExceptionResolverResultPage;
 import com.liaoyingtai.blog.service.learningNotes.LearningNotesService;
 
 @Controller
+@NotLoadHeadMenu
+@CheckUserLogin
 @RequestMapping("/backStage")
 public class LearningNotesBackStageController extends MyExceptionResolverResultPage {
 
 	@Autowired
 	private LearningNotesService learningNotesService;
 
-	@NotLoadHeadMenu
-	@CheckUserLogin
 	@RequestMapping(value = "learningNotesList", method = { RequestMethod.GET })
 	public String learningNotesList(Model model, HttpSession session, LearningNotesCustom learningNotesCustom)
 			throws Exception {
@@ -31,7 +31,13 @@ public class LearningNotesBackStageController extends MyExceptionResolverResultP
 		learningNotesCustom = learningNotesService.getLearningNotesList(currentUser.getMyBlog_UserInfo_id(),
 				currentUser, learningNotesCustom);
 		model.addAttribute("lnList", learningNotesCustom);
-		return "backStage/learningNotesList";
+		return "backStage/learningNotes/learningNotesList";
+	}
+
+	@RequestMapping(value = "pubLearningNotes", method = { RequestMethod.GET })
+	public String pubLearningNotes() throws Exception {
+
+		return "backStage/learningNotes/pubLearningNotes";
 	}
 
 }

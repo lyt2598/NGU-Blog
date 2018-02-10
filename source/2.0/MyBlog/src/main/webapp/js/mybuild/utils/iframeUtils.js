@@ -10,6 +10,7 @@ function changeFrameHeight(id) {
 	var subWeb = document.frames ? document.frames[id].document : obj;
 	if (ifm != null && subWeb != null) {
 		ifm.setAttribute('height', 'auto');
-		ifm.height = subWeb.body.scrollHeight;
+		height1 = subWeb.body.scrollHeight;
+		ifm.height = height1;
 	}
 }

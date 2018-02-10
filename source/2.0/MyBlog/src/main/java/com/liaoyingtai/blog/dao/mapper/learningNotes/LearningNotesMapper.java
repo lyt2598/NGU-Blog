@@ -41,7 +41,7 @@ public interface LearningNotesMapper {
 	 * 读取学习笔记文章数量
 	 * 
 	 * @param selectParam
-	 *            查询参数，目前只有uid
+	 *            查询参数, learningNotes_Private如果设置值是大于等于0小于等于2则表示通过条件查询，其他值均为查询所有
 	 * @return
 	 * @throws Exception
 	 */

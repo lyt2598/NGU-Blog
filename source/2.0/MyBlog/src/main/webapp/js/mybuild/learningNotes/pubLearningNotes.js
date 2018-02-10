@@ -27,7 +27,7 @@ function getLNType(url) {
 	})
 }
 // 发表文章
-function pubLearningNotes(um, url) {
+function pubLearningNotes(um, url, backStage) {
 	var title = $("#pubTitleValue").val();
 	var context = um.getContent();
 	if (um.hasContents() == false) {
@@ -56,34 +56,41 @@ function pubLearningNotes(um, url) {
 		return;
 	}
 	var pubTags = $("#pubTags").val();
-	$.ajax({
-		url : url + "/ajax/pubLearningNotes",
-		method : 'post',
-		data : {
-			"learningNotes_Title" : title,
-			"learningNotes_Context" : context,
-			"learningNotes_Stick" : lnStick,
-			"learningNotes_Private" : lnPrivate,
-			"learningNotes_Relay" : lnRelay,
-			"learningNotes_Comment" : lnComment,
-			"learningNotes_Tags" : pubTags,
-			"learningNotes_Type_id" : pubType
-		},
-		dataType : 'json',
-		success : function(data) {
-			var obj = eval(data);
-			if (obj.status == 1) {
-				var uid = obj.result.userId;
-				window.location.href = url + "/learningNotesList/" + uid;
-			} else {
-				$("#publishLNMessage").html(obj.message);
-			}
-		},
-		error : function(e) {
-			alert("发布文章出错啦，请刷新后重试！");
-			console.log(e);
-		}
-	})
+	$
+			.ajax({
+				url : url + "/ajax/pubLearningNotes",
+				method : 'post',
+				data : {
+					"learningNotes_Title" : title,
+					"learningNotes_Context" : context,
+					"learningNotes_Stick" : lnStick,
+					"learningNotes_Private" : lnPrivate,
+					"learningNotes_Relay" : lnRelay,
+					"learningNotes_Comment" : lnComment,
+					"learningNotes_Tags" : pubTags,
+					"learningNotes_Type_id" : pubType
+				},
+				dataType : 'json',
+				success : function(data) {
+					var obj = eval(data);
+					if (obj.status == 1) {
+						if (backStage == false) {
+							var uid = obj.result.userId;
+							window.location.href = url + "/learningNotesList/"
+									+ uid;
+						} else {
+							window.location.href = url
+									+ "/backStage/learningNotesList";
+						}
+					} else {
+						$("#publishLNMessage").html(obj.message);
+					}
+				},
+				error : function(e) {
+					alert("发布文章出错啦，请刷新后重试！");
+					console.log(e);
+				}
+			})
 }
 // 关键字格式化
 function keywordFormat() {
