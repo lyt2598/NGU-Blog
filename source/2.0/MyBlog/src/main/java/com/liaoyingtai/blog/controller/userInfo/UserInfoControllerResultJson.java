@@ -47,7 +47,9 @@ public class UserInfoControllerResultJson extends MyExceptionResolverResultJson 
 		String checkCode = userInfoCustom.getCheckCode();
 		String sysCheckCode = (String) session.getAttribute("SESSION_CHECK_CODE");
 		if (!sysCheckCode.equalsIgnoreCase(checkCode)) {
-			throw new BlogParameterException("验证码输入不正确");
+			resultUtils.setStatus(ResultUtils.STATUS_CHECKCODE_ERROR);
+			resultUtils.setMessage("验证码输入不正确");
+			return resultUtils;
 		}
 		String account = userInfoCustom.getUserInfo_Account();
 		String password = userInfoCustom.getUserInfo_Password();

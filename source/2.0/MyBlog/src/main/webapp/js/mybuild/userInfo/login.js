@@ -12,7 +12,6 @@ function submitLogin() {
 	var userAccount = $(".login-username").val();
 	var password = $(".login-password").val();
 	var checkcode = $(".login-checkcode").val();
-	removeLoginModal();
 	$.ajax({
 		url : basePath + "/ajax/login",
 		method : "POST",
@@ -22,8 +21,16 @@ function submitLogin() {
 		success : function(data) {
 			var obj = eval(data);
 			if (obj.status == 1) {
+				removeLoginModal();
 				location.reload();
 			} else {
+				if (obj.status == -2) {
+					$("#checkCodeImg")
+							.attr(
+									"src",
+									basePath + '/img/checkCode?'
+											+ new Date().getTime());
+				}
 				setErrorMessage(obj.message);
 			}
 		},
@@ -59,6 +66,13 @@ function submitLoginPage() {
 				var url = getUrlParms("url");
 				location.href = url;
 			} else {
+				if (obj.status == -2) {
+					$("#checkCodeImg")
+							.attr(
+									"src",
+									basePath + '/img/checkCode?'
+											+ new Date().getTime());
+				}
 				setErrorMessage(obj.message);
 			}
 		},

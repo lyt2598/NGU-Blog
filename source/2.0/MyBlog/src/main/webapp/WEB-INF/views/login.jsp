@@ -58,7 +58,8 @@
 			</div>
 			<div class="login-ic">
 				<img src="${pageContext.request.contextPath }/img/checkCode"
-					alt="点击此处读取验证码" height="130px" width="100%" title="看不清？点击即可更换"
+					id="checkCodeImg" alt="点击此处读取验证码" height="130px" width="100%"
+					title="看不清？点击即可更换"
 					onclick="this.src='${pageContext.request.contextPath }/img/checkCode?'+ new Date().getTime()">
 			</div>
 			<div class="log-bwn">

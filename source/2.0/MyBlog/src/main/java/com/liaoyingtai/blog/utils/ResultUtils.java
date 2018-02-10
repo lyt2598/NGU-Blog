@@ -11,6 +11,8 @@ public class ResultUtils {
 	public final static int STATUS_OK = 1;
 	@JsonIgnore
 	public final static int STATUS_ERROR = -1;
+	@JsonIgnore
+	public final static int STATUS_CHECKCODE_ERROR = -2;
 
 	private int status;// 1:成功 -1:失败
 	private String message;// 一把失败时传递错误信息
