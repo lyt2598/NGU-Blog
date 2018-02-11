@@ -1,4 +1,3 @@
-
 function getLNTagsHtml(tags) {
 	if (tags == null || tags == "") {
 		return "";

@@ -10,11 +10,10 @@ import com.liaoyingtai.blog.exception.base.MyExceptionResolverResultJson;
 import com.liaoyingtai.blog.utils.ResultUtils;
 
 @Controller
-@RequestMapping("/ajax")
+@NotLoadHeadMenu
+@CheckUserLogin
 public class LearningNotesBackStageControllerResultJson extends MyExceptionResolverResultJson {
 
-	@NotLoadHeadMenu
-	@CheckUserLogin
 	@RequestMapping()
 	public @ResponseBody ResultUtils getBackStageLNList() throws Exception {
 		return null;

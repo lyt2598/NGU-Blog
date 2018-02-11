@@ -13,7 +13,7 @@ function submitLogin() {
 	var password = $(".login-password").val();
 	var checkcode = $(".login-checkcode").val();
 	$.ajax({
-		url : basePath + "/ajax/login",
+		url : basePath + "/login",
 		method : "POST",
 		data : "userInfo_Account=" + userAccount + "&userInfo_Password="
 				+ password + "&checkCode=" + checkcode,
@@ -55,7 +55,7 @@ function submitLoginPage() {
 	var password = $(".login-password").val();
 	var checkcode = $(".login-checkcode").val();
 	$.ajax({
-		url : basePath + "/ajax/login",
+		url : basePath + "/login",
 		method : "POST",
 		data : "userInfo_Account=" + userAccount + "&userInfo_Password="
 				+ password + "&checkCode=" + checkcode,
@@ -167,7 +167,7 @@ function setSuccessMessage(text) {
 
 function loginOut() {
 	$.ajax({
-		url : basePath + "/ajax/loginOut",
+		url : basePath + "/loginOut",
 		method : "POST",
 		dataType : "json",
 		success : function(data) {

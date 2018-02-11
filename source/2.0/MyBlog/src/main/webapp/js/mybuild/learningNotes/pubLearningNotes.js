@@ -1,7 +1,7 @@
 // 读取文章类型
 function getLNType(url) {
 	$.ajax({
-		url : url + "/ajax/getLNType",
+		url : url + "/getLNType",
 		method : "post",
 		dataType : "json",
 		success : function(data) {
@@ -58,7 +58,7 @@ function pubLearningNotes(um, url, backStage) {
 	var pubTags = $("#pubTags").val();
 	$
 			.ajax({
-				url : url + "/ajax/pubLearningNotes",
+				url : url + "/pubLearningNotes",
 				method : 'post',
 				data : {
 					"learningNotes_Title" : title,

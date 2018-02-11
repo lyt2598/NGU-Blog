@@ -13,7 +13,7 @@
 </head>
 <body class="layui-layout-body">
 	<div class="layui-layout layui-layout-admin">
-		<div class="layui-header">
+		<div class="layui-header head">
 			<div class="layui-logo">
 				<a
 					href="${pageContext.request.contextPath }/index/${sessionScope.currentUser.myBlog_UserInfo_id }"><img

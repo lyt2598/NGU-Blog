@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.liaoyingtai.blog.annotation.NotLoadHeadMenu;
 import com.liaoyingtai.blog.controller.validator.group.learningNotes.PublishLearningNotesValidatorGroup;
 import com.liaoyingtai.blog.entity.learningNotes.LearningNotes;
 import com.liaoyingtai.blog.entity.userInfo.UserInfo;
@@ -22,7 +23,7 @@ import com.liaoyingtai.blog.service.learningNotes.LearningNotesService;
 import com.liaoyingtai.blog.utils.ResultUtils;
 
 @Controller
-@RequestMapping("/ajax")
+@NotLoadHeadMenu
 public class LearningNotesControllerResultJson extends MyExceptionResolverResultJson {
 
 	@Autowired

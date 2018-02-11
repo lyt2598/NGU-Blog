@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.liaoyingtai.blog.annotation.NotLoadHeadMenu;
 import com.liaoyingtai.blog.controller.validator.group.userInfo.LoginUserInfoValidatorGroup;
 import com.liaoyingtai.blog.entity.userInfo.UserInfo;
 import com.liaoyingtai.blog.entity.userInfo.UserInfoCustom;
@@ -20,7 +21,7 @@ import com.liaoyingtai.blog.service.userinfo.UserInfoService;
 import com.liaoyingtai.blog.utils.ResultUtils;
 
 @Controller
-@RequestMapping("/ajax")
+@NotLoadHeadMenu
 public class UserInfoControllerResultJson extends MyExceptionResolverResultJson {
 
 	@Autowired

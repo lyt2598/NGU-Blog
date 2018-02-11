@@ -9,11 +9,11 @@ import com.liaoyingtai.blog.annotation.NotLoadHeadMenu;
 import com.liaoyingtai.blog.exception.base.MyExceptionResolverResultPage;
 
 @Controller
+@NotLoadHeadMenu
+@CheckUserLogin
 @RequestMapping("/backStage")
 public class IndexBackStageController extends MyExceptionResolverResultPage {
 
-	@NotLoadHeadMenu
-	@CheckUserLogin
 	@RequestMapping(value = "index", method = { RequestMethod.GET })
 	public String index() throws Exception {
 		return "backStage/index";

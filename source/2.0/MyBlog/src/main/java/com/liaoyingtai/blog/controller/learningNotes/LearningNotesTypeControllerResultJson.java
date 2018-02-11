@@ -10,13 +10,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.liaoyingtai.blog.annotation.NotLoadHeadMenu;
 import com.liaoyingtai.blog.entity.learningNotes.LearningNotesType;
 import com.liaoyingtai.blog.exception.base.MyExceptionResolverResultJson;
 import com.liaoyingtai.blog.service.learningNotes.LearningNotesTypeService;
 import com.liaoyingtai.blog.utils.ResultUtils;
 
 @Controller
-@RequestMapping("/ajax")
+@NotLoadHeadMenu
 public class LearningNotesTypeControllerResultJson extends MyExceptionResolverResultJson {
 
 	@Autowired
