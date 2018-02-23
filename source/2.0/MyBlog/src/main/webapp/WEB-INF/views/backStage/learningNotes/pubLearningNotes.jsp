@@ -4,11 +4,9 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>发表文章</title>
+<title>发表文章&nbsp;-&nbsp;个人中心&nbsp;-&nbsp;NGU&nbsp;个人主页</title>
 <%@ include file="../baseView/pageBaseCSS.jsp"%>
 <%@ include file="../baseView/pageBaseJS.jsp"%>
-<script
-	src="${pageContext.request.contextPath }/js/referenced/jquery/jquery-3.2.1.min.js"></script>
 <script
 	src="${pageContext.request.contextPath }/js/mybuild/learningNotes/pubLearningNotes.js"></script>
 </head>
@@ -66,26 +64,7 @@
 		src="${pageContext.request.contextPath }/editor/ueditor.all.min.js"></script>
 	<script type="text/javascript"
 		src="${pageContext.request.contextPath }/editor/lang/zh-cn/zh-cn.js"></script>
-	<script>
-		layui
-				.use(
-						[ 'form', 'layedit', ],
-						function() {
-							var form = layui.form, layer = layui.layer, layedit = layui.layedit, laydate = layui.laydate;
-							form.render('select');
-						});
-	</script>
-	<script type="text/javascript">
-		$(document).ready(function(e) {
-			var ue = UE.getEditor('myEditor');
-			var url = parent.basePath;
-			getLNType(url);
-			$('#publishLN').click(function() {
-				pubLearningNotes(ue, url, true);
-				window.parent.changeFrameHeight('myIFrame');
-			});
-			window.parent.changeFrameHeight('myIFrame');
-		})
-	</script>
+	<script
+		src="${pageContext.request.contextPath }/js/mybuild/backStage/learningNotes/pubLearningNotes.js"></script>
 </body>
 </html>

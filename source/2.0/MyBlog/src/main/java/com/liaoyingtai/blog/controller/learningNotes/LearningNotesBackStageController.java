@@ -25,18 +25,18 @@ public class LearningNotesBackStageController extends MyExceptionResolverResultP
 	private LearningNotesService learningNotesService;
 
 	@RequestMapping(value = "learningNotesList", method = { RequestMethod.GET })
-	public String learningNotesList(Model model, HttpSession session, LearningNotesCustom learningNotesCustom)
-			throws Exception {
-		UserInfo currentUser = (UserInfo) session.getAttribute("currentUser");
-		learningNotesCustom = learningNotesService.getLearningNotesList(currentUser.getMyBlog_UserInfo_id(),
-				currentUser, learningNotesCustom);
-		model.addAttribute("lnList", learningNotesCustom);
+	public String learningNotesList(HttpSession session, Model model, String title) throws Exception {
+		UserInfo userInfo = (UserInfo) session.getAttribute("currentUser");
+		LearningNotesCustom learningNotesCustom = new LearningNotesCustom();
+		learningNotesCustom.setTitle(title);
+		learningNotesCustom = learningNotesService.getLearningNotesList(userInfo.getMyBlog_UserInfo_id(), userInfo,
+				learningNotesCustom);
+		model.addAttribute("lnInfo", learningNotesCustom);
 		return "backStage/learningNotes/learningNotesList";
 	}
 
 	@RequestMapping(value = "pubLearningNotes", method = { RequestMethod.GET })
 	public String pubLearningNotes() throws Exception {
-
 		return "backStage/learningNotes/pubLearningNotes";
 	}
 

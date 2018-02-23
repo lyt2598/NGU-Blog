@@ -6,8 +6,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>个人中心</title>
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath }/layui/css/layui.css">
+<%@ include file="baseView/pageBaseCSS.jsp"%>
+<%@ include file="baseView/pageBaseJS.jsp"%>
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath }/css/mybuild/backStage/index.css">
 </head>
@@ -82,7 +82,7 @@
 
 		<div class="layui-body">
 			<!-- 内容主体区域 -->
-			<div style="margin:20px;">
+			<div style="margin: 20px;">
 				<iframe id="myIFrame" class="myIFrame" name="myIFrame" width="100%"
 					src="#" onload="changeFrameHeight('myIFrame')" scrolling="no"></iframe>
 			</div>
@@ -94,9 +94,6 @@
 				href="http://www.miitbeian.gov.cn/" target="_black">湘ICP备18000987号</a>
 		</div>
 	</div>
-	<script
-		src="${pageContext.request.contextPath }/js/referenced/jquery/jquery-3.2.1.min.js"></script>
-	<script src="${pageContext.request.contextPath }/layui/layui.js"></script>
 	<script
 		src="${pageContext.request.contextPath }/js/mybuild/userInfo/login.js"></script>
 	<script

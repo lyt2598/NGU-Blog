@@ -20,6 +20,9 @@ Date.prototype.format = function(format) {
 }
 
 function dateFormat(date,format){
+	if(format==null || format == undefined || format ==""){
+		format="yyyy年MM月dd日 hh时mm分ss秒";
+	}
 	date=new Date(date).format(format);
 	return date;
 }

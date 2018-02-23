@@ -203,17 +203,26 @@
 	</div>
 	<%@ include file="../../baseView/pageUtils.jsp"%><script
 		type="text/javascript">
-		$(document).ready(function() {
-			var format = "yyyy年MM月dd日";
-			$("#menu-pubTime").html(function(index, html) {
-				var date = dateFormat(html, format);
-				return date;
-			});
-			$("#menu-modTime").html(function(index, html) {
-				var date = dateFormat(html, format);
-				return date;
-			});
-		});
+		$(document).ready(
+				function() {
+					var format = "yyyy年MM月dd日";
+					$("#menu-pubTime").html(function(index, html) {
+						var date = dateFormat(html, format);
+						return date;
+					});
+					$("#menu-modTime").html(function(index, html) {
+						var date = dateFormat(html, format);
+						return date;
+					});
+					var targs = $("#lnTags").html();
+					targs = targs.split(",");
+					var html = '<span class="label label-default">本文标签</span>';
+					for (var i = 0; i < targs.length; i++) {
+						html += '<span class="label label-info">' + targs[i]
+								+ '</span>';
+					}
+					$("#lnTags").html(html);
+				});
 	</script>
 </body>
 </html>

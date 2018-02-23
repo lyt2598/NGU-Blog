@@ -25,6 +25,9 @@ public class LearningNotesServiceImpl implements LearningNotesService {
 
 	public LearningNotesCustom getLearningNotesList(String userId, UserInfo currentUser,
 			LearningNotesCustom selectParam) throws Exception {
+		if (selectParam == null) {
+			selectParam = new LearningNotesCustom();
+		}
 		int page = selectParam.getPage();
 		int limit = selectParam.getLimit();
 		if (page <= 0) {
