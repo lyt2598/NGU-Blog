@@ -7,7 +7,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.method.HandlerMethod;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -27,24 +26,26 @@ public class MyHandlerInterceptor extends MyExceptionResolverResultPage implemen
 	@Autowired
 	private UserInfoService userInfoService;
 	// 登录页action
-	private static final String LOGIN_URL = "post/login";
+	private static final String LOGIN_URL = "login";
 
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
 			throws Exception {
-		if (handler instanceof HandlerMethod) {
-			boolean result = CheckUserLoginUtils.checkUserLogin(request.getSession(), handler);
-			if (!result) {
-				String url = request.getRequestURL().toString();
-				response.sendRedirect(request.getServletContext().getContextPath() + "/" + LOGIN_URL + "?url=" + url);
-				return false;
+		boolean result = CheckUserLoginUtils.checkUserLogin(request.getSession(), handler);
+		if (!result) {
+			String url = request.getRequestURL().toString();
+			if (url == null && "".equals(url)) {
+				url = request.getServletContext().getContextPath() + "/index.jsp";
 			}
+			response.sendRedirect(request.getServletContext().getContextPath() + "/" + LOGIN_URL + "?url=" + url);
+			return false;
 		}
 		return true;
 	}
 
 	public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler,
 			ModelAndView modelAndView) throws Exception {
-		if (!NotLoadHeadMenuUtils.isNotLoadHeadMenu(handler)) {
+		boolean result = NotLoadHeadMenuUtils.isNotLoadHeadMenu(handler);
+		if (!result) {
 			// 加载头部菜单信息
 			String uid = "";
 			if (modelAndView == null) {
@@ -64,7 +65,9 @@ public class MyHandlerInterceptor extends MyExceptionResolverResultPage implemen
 
 	public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex)
 			throws Exception {
-
+		if (ex != null) {
+			ex.printStackTrace();
+		}
 	}
 
 }

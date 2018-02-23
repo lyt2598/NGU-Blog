@@ -2,6 +2,7 @@ package com.liaoyingtai.blog.controller.learningNotes;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.liaoyingtai.blog.annotation.CheckUserLogin;
@@ -14,8 +15,9 @@ import com.liaoyingtai.blog.utils.ResultUtils;
 @CheckUserLogin
 public class LearningNotesBackStageControllerResultJson extends MyExceptionResolverResultJson {
 
-	@RequestMapping()
+	@RequestMapping(value = "/getBackStageLNList", method = { RequestMethod.POST })
 	public @ResponseBody ResultUtils getBackStageLNList() throws Exception {
-		return null;
+		ResultUtils resultUtils = new ResultUtils();
+		return resultUtils;
 	}
 }

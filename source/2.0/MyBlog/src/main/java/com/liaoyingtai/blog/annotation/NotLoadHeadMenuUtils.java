@@ -14,17 +14,14 @@ public class NotLoadHeadMenuUtils {
 	 * @throws Exception
 	 */
 	public static boolean isNotLoadHeadMenu(Object handler) throws Exception {
-		boolean result = false;
+		boolean result = true;
 		if (handler instanceof HandlerMethod) {
 			HandlerMethod handlerMethod = (HandlerMethod) handler;
 			Method method = handlerMethod.getMethod();
-			if (method.isAnnotationPresent(NotLoadHeadMenu.class)) {
-				result = true;
-			} else {
-				Class<?> type = handlerMethod.getBeanType();
-				if (type.isAnnotationPresent(NotLoadHeadMenu.class)) {
-					result = true;
-				}
+			Class<?> type = handlerMethod.getBeanType();
+			if (!method.isAnnotationPresent(NotLoadHeadMenu.class)
+					&& !type.isAnnotationPresent(NotLoadHeadMenu.class)) {
+				result = false;
 			}
 		}
 		return result;

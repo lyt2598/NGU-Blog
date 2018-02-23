@@ -14,6 +14,7 @@ public class MyExceptionResolverResultPage {
 	@ExceptionHandler
 	public ModelAndView resolveException(HttpServletRequest arg0, HttpServletResponse arg1, Object arg2,
 			Exception arg3) {
+		arg3.printStackTrace();
 		ModelAndView mad = new ModelAndView();
 		String viewName = "error";
 		if (arg3 instanceof BlogSystemException) {

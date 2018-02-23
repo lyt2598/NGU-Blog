@@ -20,33 +20,36 @@ public class CheckUserLoginUtils {
 	 * @return true：没有检测到注解/用户已经登录 false：用户没有登录抛出异常
 	 * 
 	 */
-	public static boolean checkUserLogin(HttpSession session, Object handle) {
-		HandlerMethod handlerMethod = (HandlerMethod) handle;
-		Method method = handlerMethod.getMethod();
-		System.out.println("自定义注解->检测方法上是否含有校验用户是否登陆注解");
-		if (method.isAnnotationPresent(CheckUserLogin.class)) {
-			System.out.println("自定义注解->检测方法上是否含有校验用户是否登陆注解->校验用户是否登陆");
-			UserInfo userInfo = (UserInfo) session.getAttribute("currentUser");
-			if (userInfo == null) {
-				System.out.println("自定义注解->检测方法上是否含有校验用户是否登陆注解->校验用户是否登陆->用户没有登录");
-				return false;
-			}
-		} else {
-			Class<?> type = handlerMethod.getBeanType();
-			System.out.println(type);
-			System.out.println("自定义注解->检测类上是否含有校验用户是否登陆注解");
-			if (type.isAnnotationPresent(CheckUserLogin.class)) {
-				System.out.println("自定义注解->检测类上是否含有校验用户是否登陆注解->校验用户是否登陆");
+	public static boolean checkUserLogin(HttpSession session, Object handler) {
+		boolean result = true;
+		if (handler instanceof HandlerMethod) {
+			HandlerMethod handlerMethod = (HandlerMethod) handler;
+			Method method = handlerMethod.getMethod();
+			System.out.println("自定义注解->检测方法上是否含有校验用户是否登陆注解");
+			if (method.isAnnotationPresent(CheckUserLogin.class)) {
+				System.out.println("自定义注解->检测方法上是否含有校验用户是否登陆注解->校验用户是否登陆");
 				UserInfo userInfo = (UserInfo) session.getAttribute("currentUser");
 				if (userInfo == null) {
-					System.out.println("自定义注解->检测类上是否含有校验用户是否登陆注解->校验用户是否登陆->用户没有登录");
-					return false;
+					System.out.println("自定义注解->检测方法上是否含有校验用户是否登陆注解->校验用户是否登陆->用户没有登录");
+					result = false;
 				}
 			} else {
-				System.out.println("没有检测到注解");
+				Class<?> type = handlerMethod.getBeanType();
+				System.out.println(type);
+				System.out.println("自定义注解->检测类上是否含有校验用户是否登陆注解");
+				if (type.isAnnotationPresent(CheckUserLogin.class)) {
+					System.out.println("自定义注解->检测类上是否含有校验用户是否登陆注解->校验用户是否登陆");
+					UserInfo userInfo = (UserInfo) session.getAttribute("currentUser");
+					if (userInfo == null) {
+						System.out.println("自定义注解->检测类上是否含有校验用户是否登陆注解->校验用户是否登陆->用户没有登录");
+						result = false;
+					}
+				} else {
+					System.out.println("没有检测到注解");
+				}
 			}
 		}
-		return true;
+		return result;
 	}
 
 }
